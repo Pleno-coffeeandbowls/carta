@@ -36,11 +36,14 @@ const assets = {
   juices: asset("juices.jpeg"),
   smoothies: asset("smoothies.jpeg"),
   coffee: asset("coffee.jpeg"),
+  matcha: asset("matcha.webp"),
 };
 
 const navItems = [
-  { id: "bowls-calientes", label: "Bowls calientes" },
+  { id: "bagels-paninos", label: "Bagels & Paninos" },
+  { id: "brunch", label: "Brunch" },
   { id: "bowls-frios", label: "Bowls fríos" },
+  { id: "bowls-calientes", label: "Bowls calientes" },
   { id: "acai-protein", label: "Açaí o protein bowl" },
   { id: "dulces", label: "Dulces" },
   { id: "bebidas", label: "Bebidas" },
@@ -324,7 +327,7 @@ function PhotoCarousel({ slides, label }: { slides: Array<{ src: string; label: 
 }
 
 export default function Home() {
-  const [active, setActive] = useState("bowls");
+  const [active, setActive] = useState("bagels-paninos");
   const [showTop, setShowTop] = useState(false);
 
   useEffect(() => {
@@ -395,16 +398,8 @@ export default function Home() {
       </nav>
 
       <div className="menu-shell">
-        <section className="menu-section menu-section--bowls" id="bowls-calientes" aria-label="Bowls calientes">
+        <section className="menu-section menu-section--panes" id="bagels-paninos" aria-label="Bagels y paninos">
           <div className="section-number" aria-hidden="true">01</div>
-          <div className="section-copy">
-            <MenuList group={marketBowls} />
-          </div>
-          <ProductPhoto src={assets.beefBowl} label="Steak Bowl" priority />
-        </section>
-
-        <section className="menu-section menu-section--panes" aria-label="Bagels, paninos, tostas y brunch">
-          <div className="section-number" aria-hidden="true">02</div>
           <div className="panes-flow">
             <div className="panes-chapter">
               <div className="section-copy">
@@ -415,6 +410,12 @@ export default function Home() {
                 { src: assets.panino, label: "Panino" },
               ]} />
             </div>
+          </div>
+        </section>
+
+        <section className="menu-section menu-section--panes" id="brunch" aria-label="Brunch">
+          <div className="section-number" aria-hidden="true">02</div>
+          <div className="panes-flow">
             <div className="panes-chapter panes-chapter--reverse">
               <ProductPhoto src={assets.eggToast} label="Tosta de Aguacate & Huevo Poché" />
               <div className="section-copy">
@@ -444,8 +445,16 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="menu-section menu-section--sweet menu-section--protein" id="acai-protein" aria-label="Açaí o protein bowl">
+        <section className="menu-section menu-section--bowls" id="bowls-calientes" aria-label="Bowls calientes">
           <div className="section-number" aria-hidden="true">04</div>
+          <div className="section-copy">
+            <MenuList group={marketBowls} />
+          </div>
+          <ProductPhoto src={assets.beefBowl} label="Steak Bowl" priority />
+        </section>
+
+        <section className="menu-section menu-section--sweet menu-section--protein" id="acai-protein" aria-label="Açaí o protein bowl">
+          <div className="section-number" aria-hidden="true">05</div>
           <div className="section-copy section-copy--paired protein-layout">
             <div className="protein-chapter">
               <MenuList group={acai} />
@@ -459,14 +468,14 @@ export default function Home() {
         </section>
 
         <section className="menu-section menu-section--sweet" id="dulces" aria-label="Dulces">
-          <div className="section-number" aria-hidden="true">05</div>
+          <div className="section-number" aria-hidden="true">06</div>
           <div className="section-copy">
             <MenuList group={sweet} />
           </div>
         </section>
 
         <section className="menu-section menu-section--drinks" id="bebidas" aria-label="Bebidas">
-          <div className="section-number" aria-hidden="true">06</div>
+          <div className="section-number" aria-hidden="true">07</div>
           <div className="section-copy drinks-layout">
             <MenuList group={juices} />
             <div className="drink-photos" aria-label="Bebidas PLENO">
@@ -476,7 +485,10 @@ export default function Home() {
             <MenuList group={coffee} compact />
             <MenuList group={kombucha} compact subtleHeading />
           </div>
-          <ProductPhoto src={assets.coffee} label="Café PLENO" />
+          <PhotoCarousel label="Café y Matcha" slides={[
+            { src: assets.coffee, label: "Café PLENO" },
+            { src: assets.matcha, label: "Matcha" },
+          ]} />
         </section>
       </div>
 
