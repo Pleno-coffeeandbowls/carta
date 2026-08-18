@@ -41,6 +41,7 @@ const assets = {
 
 const navItems = [
   { id: "bagels-paninos", label: "Bagels & Paninos" },
+  { id: "tostas", label: "Tostas" },
   { id: "brunch", label: "Brunch" },
   { id: "bowls-frios", label: "Bowls fríos" },
   { id: "bowls-calientes", label: "Bowls calientes" },
@@ -413,15 +414,21 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="menu-section menu-section--panes" id="brunch" aria-label="Brunch">
+        <section className="menu-section menu-section--panes" id="tostas" aria-label="Tostas">
           <div className="section-number" aria-hidden="true">02</div>
           <div className="panes-flow">
             <div className="panes-chapter panes-chapter--reverse">
               <ProductPhoto src={assets.eggToast} label="Tosta de Aguacate & Huevo Poché" />
               <div className="section-copy">
-                <MenuList group={tostas} compact />
+                <MenuList group={tostas} />
               </div>
             </div>
+          </div>
+        </section>
+
+        <section className="menu-section menu-section--panes" id="brunch" aria-label="Brunch">
+          <div className="section-number" aria-hidden="true">03</div>
+          <div className="panes-flow">
             <div className="panes-chapter">
               <div className="section-copy">
                 <MenuList group={brunch} />
@@ -435,7 +442,7 @@ export default function Home() {
         </section>
 
         <section className="menu-section menu-section--salads" id="bowls-frios" aria-label="Bowls fríos">
-          <div className="section-number" aria-hidden="true">03</div>
+          <div className="section-number" aria-hidden="true">04</div>
           <ProductPhoto src={assets.coldBowl} label="BOWL AVOCADO" />
           <div className="section-copy">
             <MenuList group={saladBowls} />
@@ -446,7 +453,7 @@ export default function Home() {
         </section>
 
         <section className="menu-section menu-section--bowls" id="bowls-calientes" aria-label="Bowls calientes">
-          <div className="section-number" aria-hidden="true">04</div>
+          <div className="section-number" aria-hidden="true">05</div>
           <div className="section-copy">
             <MenuList group={marketBowls} />
           </div>
@@ -454,7 +461,7 @@ export default function Home() {
         </section>
 
         <section className="menu-section menu-section--sweet menu-section--protein" id="acai-protein" aria-label="Açaí o protein bowl">
-          <div className="section-number" aria-hidden="true">05</div>
+          <div className="section-number" aria-hidden="true">06</div>
           <div className="section-copy section-copy--paired protein-layout">
             <div className="protein-chapter">
               <MenuList group={acai} />
@@ -468,14 +475,14 @@ export default function Home() {
         </section>
 
         <section className="menu-section menu-section--sweet" id="dulces" aria-label="Dulces">
-          <div className="section-number" aria-hidden="true">06</div>
+          <div className="section-number" aria-hidden="true">07</div>
           <div className="section-copy">
             <MenuList group={sweet} />
           </div>
         </section>
 
         <section className="menu-section menu-section--drinks" id="bebidas" aria-label="Bebidas">
-          <div className="section-number" aria-hidden="true">07</div>
+          <div className="section-number" aria-hidden="true">08</div>
           <div className="section-copy drinks-layout">
             <MenuList group={juices} />
             <div className="drink-photos" aria-label="Bebidas PLENO">
