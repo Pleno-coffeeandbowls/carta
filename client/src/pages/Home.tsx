@@ -242,32 +242,31 @@ const smoothies: MenuGroup = {
 const coffee: MenuGroup = {
   title: "Café & Matcha",
   items: [
-    { name: "Café solo · Espresso", price: "2,00 €" },
-    { name: "Cortado", price: "2,00 €" },
-    { name: "Americano", price: "3,20 €" },
-    { name: "Americano XL", price: "3,40 €" },
+    { name: "Café solo · Espresso", price: "2,60 €" },
+    { name: "Cortado", price: "2,80 €" },
+    { name: "Americano", price: "2,60 €" },
     { name: "Café con leche", price: "3,30 €" },
-    { name: "Café con leche XL", price: "3,50 €" },
+    { name: "Café con leche XL", price: "3,80 €" },
     { name: "Café con leche sin lactosa, soja o avena", price: "3,50 €" },
-    { name: "Café con leche sin lactosa, soja o avena XL", price: "3,70 €" },
+    { name: "Café con leche sin lactosa, soja o avena XL", price: "4,00 €" },
     { name: "Cappuccino", price: "3,60 €" },
     { name: "Frappé", price: "4,60 €", description: "Con leche, hielo y sirope." },
-    { name: "Carajillo", price: "4,50 €" },
+    { name: "Carajillo", price: "4,80 €" },
     { name: "Colacao", price: "3,90 €" },
-    { name: "Té e infusiones", price: "2,50 €" },
-    { name: "Flat White", price: "4,60 €" },
-    { name: "Matcha Latte Caliente", price: "5,90 €" },
-    { name: "Matcha Latte Frío", price: "5,90 €" },
-    { name: "Strawberry Matcha", price: "6,40 €" },
+    { name: "Té e infusiones", price: "3,00 €" },
+    { name: "Matcha Latte Caliente", price: "4,00 €" },
+    { name: "Matcha Latte Frío", price: "4,30 €" },
+    { name: "Ube Latte Caliente", price: "4,00 €", description: "Hierbas filipinas con notas a vainilla y frutos secos. Cero cafeína." },
+    { name: "Ube Latte Frío", price: "4,30 €", description: "Hierbas filipinas con notas a vainilla y frutos secos. Cero cafeína." },
   ],
 };
 
 const kombucha: MenuGroup = {
   title: "Kombucha Miwi",
   items: [
-    { name: "Ginger and Lemon", price: "5,00 €" },
-    { name: "Wild Berries", price: "5,00 €" },
-    { name: "Lime and Mint", price: "5,00 €" },
+    { name: "Kombucha Ginger and Lemon", price: "3,80 €" },
+    { name: "Kombucha Wild Berries", price: "3,80 €" },
+    { name: "Kombucha Lime and Mint", price: "3,80 €" },
   ],
 };
 
