@@ -4,7 +4,7 @@
  * high-contrast readable pricing, and no decorative UI that competes with food or selection.
  */
 import { useEffect, useState } from "react";
-import { ArrowUp, ExternalLink, Star } from "lucide-react";
+import { ArrowUp, ExternalLink, Star, X } from "lucide-react";
 
 type MenuItem = {
   name: string;
@@ -21,6 +21,8 @@ type MenuGroup = {
 };
 
 const asset = (filename: string) => `${import.meta.env.BASE_URL}assets/${filename}`;
+const WELCOME_STORAGE_KEY = "pleno:club-welcome-v1";
+const CLUB_PLENO_URL = "https://take.cards/s5msH";
 
 const assets = {
   logo: asset("logo-olive.png"),
@@ -342,6 +344,7 @@ function PhotoCarousel({ slides, label }: { slides: Array<{ src: string; label: 
 export default function Home() {
   const [active, setActive] = useState("bagels-paninos");
   const [showTop, setShowTop] = useState(false);
+  const [showWelcome, setShowWelcome] = useState(false);
 
   useEffect(() => {
     const sections = navItems
@@ -367,8 +370,31 @@ export default function Home() {
     };
   }, []);
 
+  useEffect(() => {
+    if (window.localStorage.getItem(WELCOME_STORAGE_KEY)) return;
+    const timer = window.setTimeout(() => setShowWelcome(true), 800);
+    return () => window.clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    if (!showWelcome) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        window.localStorage.setItem(WELCOME_STORAGE_KEY, "seen");
+        setShowWelcome(false);
+      }
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [showWelcome]);
+
   const goTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
+  const dismissWelcome = () => {
+    window.localStorage.setItem(WELCOME_STORAGE_KEY, "seen");
+    setShowWelcome(false);
   };
 
   return (
@@ -529,8 +555,10 @@ export default function Home() {
         <div className="club-card" id="healthy-social-club">
           <span className="eyebrow">Healthy Social Club</span>
           <h2>Good food.<br /><em>Better mood.</em></h2>
-          <p>Próximamente: beneficios y descuentos para nuestra comunidad.</p>
-          <span className="club-status"><Star size={14} fill="currentColor" aria-hidden="true" /> Próximamente</span>
+          <p>Crea tu tarjeta de fidelización y empieza con 10 puntos de bienvenida.</p>
+          <a className="club-cta" href={CLUB_PLENO_URL} target="_blank" rel="noreferrer">
+            <Star size={15} fill="currentColor" aria-hidden="true" /> Crear mi tarjeta <ExternalLink size={17} aria-hidden="true" />
+          </a>
         </div>
       </section>
 
@@ -547,6 +575,24 @@ export default function Home() {
       >
         <ArrowUp size={20} aria-hidden="true" />
       </button>
+
+      {showWelcome && (
+        <div className="welcome-overlay" role="presentation">
+          <section className="welcome-dialog" role="dialog" aria-modal="true" aria-labelledby="welcome-title" aria-describedby="welcome-copy">
+            <button className="welcome-dismiss" type="button" onClick={dismissWelcome} aria-label="Cerrar aviso de bienvenida">
+              <X size={20} aria-hidden="true" />
+            </button>
+            <p className="eyebrow">Club Pleno</p>
+            <p className="welcome-points" aria-hidden="true">+10</p>
+            <h2 id="welcome-title">10 puntos de bienvenida</h2>
+            <p id="welcome-copy">Crea tu tarjeta de fidelización de Club Pleno y empieza con 10 puntos.</p>
+            <a className="welcome-cta" href={CLUB_PLENO_URL} target="_blank" rel="noreferrer" onClick={dismissWelcome}>
+              Crear mi tarjeta <ExternalLink size={18} aria-hidden="true" />
+            </a>
+            <button className="welcome-secondary" type="button" onClick={dismissWelcome}>Ahora no</button>
+          </section>
+        </div>
+      )}
     </main>
   );
 }

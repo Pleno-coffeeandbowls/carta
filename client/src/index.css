@@ -198,13 +198,26 @@ h1 em { font-style: italic; }
 .club-card { background: #d7d7c6; color: var(--deep-olive); }
 .club-card .eyebrow { color: var(--deep-olive); }
 .club-card h2 em { font-style: italic; }
-.club-status { align-items: center; border-top: 1px solid rgba(74, 90, 58, 0.3); display: inline-flex; font-size: 11px; font-weight: 800; gap: 7px; letter-spacing: 0.1em; padding-top: 14px; text-transform: uppercase; }
+.club-cta { align-items: center; border-top: 1px solid rgba(74, 90, 58, 0.3); color: var(--deep-olive); display: inline-flex; font-size: 13px; font-weight: 800; gap: 7px; letter-spacing: 0.04em; min-height: 44px; padding-top: 14px; text-decoration: none; }
+.club-cta:hover { color: var(--olive); }
 .site-footer { align-items: center; background: var(--travertine-light); border-top: 1px solid var(--line); color: var(--deep-olive); display: flex; flex-direction: column; gap: 12px; margin-top: 0; padding: 42px 20px 36px; text-align: center; }
 .site-footer img { height: 36px; object-fit: contain; width: auto; }
 .site-footer p { font-family: "DM Serif Display", Georgia, serif; font-size: 29px; letter-spacing: -0.035em; margin: 0; }
 .top-button { align-items: center; background: var(--deep-olive); border: 1px solid rgba(232, 226, 214, 0.5); border-radius: 999px; bottom: 20px; box-shadow: 0 12px 24px rgba(17,17,17,0.22); color: var(--travertine); display: flex; height: 50px; justify-content: center; opacity: 0; pointer-events: none; position: fixed; right: 16px; transform: translateY(14px); transition: opacity 160ms ease-out, transform 160ms ease-out; width: 50px; z-index: 40; }
 .top-button.is-visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
 .top-button:active { transform: scale(0.97); }
+.welcome-overlay { align-items: end; backdrop-filter: blur(8px); background: rgba(17, 17, 17, 0.42); display: grid; inset: 0; padding: 16px; position: fixed; z-index: 70; }
+.welcome-dialog { background: var(--travertine-light); border: 1px solid rgba(74, 90, 58, 0.24); border-radius: 30px 30px 12px 12px; box-shadow: 0 28px 70px rgba(17, 17, 17, 0.3); margin: 0 auto; max-width: 500px; overflow: hidden; padding: 38px 26px 25px; position: relative; width: 100%; }
+.welcome-dialog::before { background: var(--deep-olive); content: ""; height: 7px; left: 0; position: absolute; right: 0; top: 0; }
+.welcome-dialog .eyebrow { margin-bottom: 10px; }
+.welcome-points { color: var(--sage); font-family: "DM Serif Display", Georgia, serif; font-size: 68px; letter-spacing: -0.08em; line-height: 0.75; margin: 0 0 15px; }
+.welcome-dialog h2 { color: var(--deep-olive); font-size: clamp(2.2rem, 10vw, 3.25rem); letter-spacing: -0.06em; line-height: 0.91; margin: 0 38px 15px 0; }
+.welcome-dialog > p:not(.eyebrow):not(.welcome-points) { color: var(--ink-soft); font-size: 16px; line-height: 1.5; margin-bottom: 23px; max-width: 380px; }
+.welcome-dismiss { align-items: center; background: transparent; border: 1px solid var(--line); border-radius: 999px; color: var(--deep-olive); display: flex; height: 42px; justify-content: center; position: absolute; right: 20px; top: 22px; width: 42px; }
+.welcome-cta { align-items: center; background: var(--deep-olive); border: 1px solid var(--deep-olive); color: var(--travertine); display: inline-flex; font-size: 15px; font-weight: 800; gap: 8px; justify-content: center; min-height: 54px; padding: 0 20px; text-decoration: none; transition: background 160ms ease-out, color 160ms ease-out, transform 160ms ease-out; width: 100%; }
+.welcome-cta:hover { background: var(--olive); }
+.welcome-cta:active { transform: scale(0.98); }
+.welcome-secondary { background: transparent; border: 0; color: var(--deep-olive); display: block; font-size: 14px; font-weight: 800; margin: 16px auto 0; min-height: 36px; text-decoration: underline; text-underline-offset: 4px; }
 
 @media (min-width: 680px) {
   .header-inner { padding: 0 32px; }
@@ -224,6 +237,9 @@ h1 em { font-style: italic; }
   .menu-section--drinks { grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr); }
   .menu-section--drinks > .product-photo { display: block; }
   .section-copy--paired { gap: 44px; }
+  .welcome-overlay { align-items: center; padding: 28px; }
+  .welcome-dialog { border-radius: 34px 34px 16px 16px; padding: 46px 42px 32px; }
+  .welcome-dismiss { right: 28px; top: 28px; }
 }
 
 @media (min-width: 1024px) {
