@@ -243,6 +243,13 @@ h1 em { font-style: italic; }
   .review-card, .club-card { min-height: 320px; padding: 52px 44px; }
 }
 
+@media (min-width: 1400px) {
+  .category-rail { justify-content: space-between; max-width: none; padding-left: 30px; padding-right: 30px; }
+  .index-title { margin-right: 4px; padding-right: 9px; }
+  .category-pill { font-size: 10px; gap: 4px; letter-spacing: 0.06em; padding-left: 8px; padding-right: 8px; }
+  .category-pill::before { font-size: 14px; }
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .hero-copy, .hero-visual { animation: rise-in 640ms cubic-bezier(0.23, 1, 0.32, 1) both; }
   .hero-visual { animation-delay: 85ms; }
