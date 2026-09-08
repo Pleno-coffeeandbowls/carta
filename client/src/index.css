@@ -151,6 +151,9 @@ h1 em { font-style: italic; }
 .menu-list--subtle .section-heading { padding-right: 0; }
 .menu-list--subtle .section-heading h2 { font-family: "Manrope", Arial, sans-serif; font-size: 15px; font-weight: 800; letter-spacing: 0.04em; line-height: 1.25; text-transform: none; }
 .menu-list--subtle .section-editorial-rule { display: none; }
+.section-heading--chapter { margin-bottom: 26px; }
+.sweet-groups { max-width: 680px; }
+.sweet-groups .subsection-divider { margin: 30px 0; }
 .custom-salad-block { border-bottom: 1px solid var(--olive); border-top: 1px solid var(--olive); margin-top: 34px; padding: 26px 0; }
 .subsection-divider { background: var(--olive); height: 1px; margin: 38px 0; opacity: 0.48; }
 

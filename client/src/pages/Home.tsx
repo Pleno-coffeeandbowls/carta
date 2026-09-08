@@ -46,7 +46,7 @@ const navItems = [
   { id: "bowls-frios", label: "Bowls fríos" },
   { id: "bowls-calientes", label: "Bowls calientes" },
   { id: "acai-protein", label: "Açaí o protein bowl" },
-  { id: "dulces", label: "Dulces" },
+  { id: "dulces", label: "Croissants y dulces" },
   { id: "bebidas", label: "Bebidas" },
 ];
 
@@ -200,18 +200,24 @@ const acai: MenuGroup = {
   ],
 };
 
-const sweet: MenuGroup = {
-  title: "Dulces",
+const croissants: MenuGroup = {
+  title: "Croissants",
   items: [
-    { name: "Tarta de zanahoria · saludable, con harina de almendras", price: "4,50 €" },
-    { name: "Tarta de banana · saludable, con harina de almendras", price: "4,50 €" },
-    { name: "Rol de canela", price: "4,20 €" },
     { name: "Croissant solo", price: "3,50 €" },
     { name: "Croissant de york y queso", price: "5,50 €" },
     { name: "Croissant de ibérico y tomate", price: "6,00 €" },
     { name: "Croissant de atún vegetal", price: "5,90 €" },
     { name: "Croissant de crema de cacao", price: "4,50 €" },
     { name: "Croissant de mantequilla de maní y mermelada", price: "4,50 €" },
+  ],
+};
+
+const sweet: MenuGroup = {
+  title: "Dulces",
+  items: [
+    { name: "Tarta de zanahoria · saludable, con harina de almendras", price: "4,50 €" },
+    { name: "Tarta de banana · saludable, con harina de almendras", price: "4,50 €" },
+    { name: "Rol de canela", price: "4,20 €" },
     { name: "Mini napolitana", price: "2,30 €" },
   ],
 };
@@ -480,10 +486,18 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="menu-section menu-section--sweet" id="dulces" aria-label="Dulces">
+        <section className="menu-section menu-section--sweet" id="dulces" aria-label="Croissants y dulces">
           <div className="section-number" aria-hidden="true">07</div>
           <div className="section-copy">
-            <MenuList group={sweet} />
+            <div className="section-heading section-heading--chapter">
+              <h2>Croissants y dulces</h2>
+              <div className="section-editorial-rule" aria-hidden="true"><span /></div>
+            </div>
+            <div className="sweet-groups">
+              <MenuList group={croissants} compact subtleHeading />
+              <div className="subsection-divider" />
+              <MenuList group={sweet} compact subtleHeading />
+            </div>
           </div>
         </section>
 
