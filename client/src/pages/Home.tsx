@@ -41,12 +41,12 @@ const assets = {
 
 const navItems = [
   { id: "bagels-paninos", label: "Bagels & Paninos" },
-  { id: "tostas", label: "Tostas" },
+  { id: "tostas", label: "Tostas y croissants" },
   { id: "brunch", label: "Brunch" },
   { id: "bowls-frios", label: "Bowls fríos" },
   { id: "bowls-calientes", label: "Bowls calientes" },
   { id: "acai-protein", label: "Açaí o protein bowl" },
-  { id: "dulces", label: "Croissants y dulces" },
+  { id: "dulces", label: "Dulces" },
   { id: "bebidas", label: "Bebidas" },
 ];
 
@@ -426,13 +426,21 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="menu-section menu-section--panes" id="tostas" aria-label="Tostas">
+        <section className="menu-section menu-section--panes" id="tostas" aria-label="Tostas y croissants">
           <div className="section-number" aria-hidden="true">02</div>
           <div className="panes-flow">
             <div className="panes-chapter panes-chapter--reverse">
               <ProductPhoto src={assets.eggToast} label="Tosta de Aguacate & Huevo Poché" />
               <div className="section-copy">
-                <MenuList group={tostas} />
+                <div className="section-heading section-heading--chapter">
+                  <h2>Tostas y croissants</h2>
+                  <div className="section-editorial-rule" aria-hidden="true"><span /></div>
+                </div>
+                <div className="sweet-groups">
+                  <MenuList group={tostas} compact subtleHeading />
+                  <div className="subsection-divider" />
+                  <MenuList group={croissants} compact subtleHeading />
+                </div>
               </div>
             </div>
           </div>
@@ -486,18 +494,10 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="menu-section menu-section--sweet" id="dulces" aria-label="Croissants y dulces">
+        <section className="menu-section menu-section--sweet" id="dulces" aria-label="Dulces">
           <div className="section-number" aria-hidden="true">07</div>
           <div className="section-copy">
-            <div className="section-heading section-heading--chapter">
-              <h2>Croissants y dulces</h2>
-              <div className="section-editorial-rule" aria-hidden="true"><span /></div>
-            </div>
-            <div className="sweet-groups">
-              <MenuList group={croissants} compact subtleHeading />
-              <div className="subsection-divider" />
-              <MenuList group={sweet} compact subtleHeading />
-            </div>
+            <MenuList group={sweet} />
           </div>
         </section>
 
