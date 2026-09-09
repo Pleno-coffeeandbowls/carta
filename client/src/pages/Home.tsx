@@ -149,8 +149,8 @@ const englishTranslations: Record<string, string> = {
   "Pechuga de pollo marinada con naranja al grill, quinoa, boniato al horno, pico de gallo, aguacate y salsa pesto de cilantro.": "Orange-marinated grilled chicken breast, quinoa, oven-baked sweet potato, pico de gallo, avocado and coriander pesto sauce.",
   "Entrecot al grill, arroz, brócoli, boniato o patata, champiñones salteados, aguacate y pico de gallo.": "Grilled entrecôte, rice, broccoli, sweet potato or potato, sautéed mushrooms, avocado and pico de gallo.",
   "Añade extra de proteína por +5,50 €.": "Add extra protein for +€5.50.",
-  "Base de açaí original.": "Original açaí base.",
-  "Base de yogur griego.": "Greek yogurt base.",
+  "Base de açaí, chía, granola, arándanos, plátano, fresa y miel.": "Açaí base, chia seeds, granola, blueberries, banana, strawberry and honey.",
+  "Base de yogur griego, chía, granola, arándanos, plátano, fresa y miel.": "Greek yogurt base, chia seeds, granola, blueberries, banana, strawberry and honey.",
   "Añade un extra: proteína, creatina, colágeno o crema de cacahuete.": "Add an extra: protein, creatine, collagen or peanut butter.",
   "Con leche, hielo y sirope.": "With milk, ice and syrup.",
   "Hierbas filipinas con notas a vainilla y frutos secos. Cero cafeína.": "Filipino herbs with vanilla and nutty notes. Caffeine-free.",
@@ -310,8 +310,8 @@ const brunch: MenuGroup = {
 const acai: MenuGroup = {
   title: "Açaí & Fitbowl",
   items: [
-    { name: "Açaí Bowl", price: "10,90 €", description: "Base de açaí original." },
-    { name: "Fitbowl", price: "9,90 €", description: "Base de yogur griego." },
+    { name: "Açaí Bowl", price: "10,90 €", description: "Base de açaí, chía, granola, arándanos, plátano, fresa y miel." },
+    { name: "Fitbowl", price: "9,90 €", description: "Base de yogur griego, chía, granola, arándanos, plátano, fresa y miel." },
   ],
 };
 
