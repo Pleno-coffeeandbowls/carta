@@ -56,6 +56,8 @@ const navItems = [
 
 const englishTranslations: Record<string, string> = {
   "Bagels & Paninos": "Bagels & Paninis",
+  "Shakes de proteína": "Protein Shakes",
+  "Cervezas": "Beers",
   "Platos calientes": "Warm bowls",
   "Ensaladas frescas": "Fresh salads",
   "Crea tu propia ensalada": "Build your own salad",
@@ -111,13 +113,22 @@ const englishTranslations: Record<string, string> = {
   "Kombucha Ginger and Lemon": "Ginger & Lemon Kombucha",
   "Kombucha Wild Berries": "Wild Berries Kombucha",
   "Kombucha Lime and Mint": "Lime & Mint Kombucha",
+  "Estrella de Galicia Sin gluten": "Estrella de Galicia Gluten-Free",
+  "Estrella de Galicia 0,0": "Estrella de Galicia 0.0",
+  "Cerveza 1906": "1906 Beer",
+  "Elige tu base: Avena · Almendra · Coco · Hi-protein. Extras: Proteína extra (+1,50 €), crema de cacahuete (+1,00 €) o toppings (+1,00 €).": "Choose your base: Oat · Almond · Coconut · Hi-protein. Extras: extra protein (+€1.50), peanut butter (+€1.00) or toppings (+€1.00).",
+  "Plátano, espinaca, proteína de vainilla, mantequilla de almendra, avena, canela y vainilla. 25–30 g de proteína.": "Banana, spinach, vanilla protein, almond butter, oats, cinnamon and vanilla. 25–30 g protein.",
+  "Cacao, proteína de chocolate, dátil, chía, canela y vainilla. 24–28 g de proteína.": "Cocoa, chocolate protein, date, chia, cinnamon and vanilla. 24–28 g protein.",
+  "Frutos rojos, proteína de vainilla, creatina, semillas, canela y vainilla. 23–27 g de proteína.": "Berries, vanilla protein, creatine, seeds, cinnamon and vanilla. 23–27 g protein.",
+  "Espresso, proteína de chocolate, yogur griego, plátano, chía, canela y vainilla. 30–35 g de proteína.": "Espresso, chocolate protein, Greek yogurt, banana, chia, cinnamon and vanilla. 30–35 g protein.",
+  "Proteína de chocolate, creatina, plátano, avena y nuez. 25–30 g de proteína.": "Chocolate protein, creatine, banana, oats and walnut. 25–30 g protein.",
   "Salmón ahumado, queso crema, cebolla encurtida y rúcula.": "Smoked salmon, cream cheese, pickled onion and rocket.",
   "Pollo al grill, tomate natural, queso edam y miel mostaza.": "Grilled chicken, fresh tomato, Edam cheese and honey mustard.",
   "Pavo, aguacate, tomate y aceite de oliva virgen extra.": "Turkey, avocado, tomato and extra virgin olive oil.",
   "Pollo al grill, tomate, noodles de calabacín y pesto casero.": "Grilled chicken, tomato, courgette noodles and homemade pesto.",
   "Pulled pork, coleslaw y bastones de boniato al horno.": "Pulled pork, coleslaw and oven-baked sweet potato fries.",
   "Atún spicy, aderezo de chipotle, tomate y mix de lechugas y aguacate.": "Spicy tuna, chipotle dressing, tomato, mixed leaves and avocado.",
-  "Paso 3: Añade extras: Huevo poché (+3,90 €), aguacate (+3,90 €), hummus casero (+3,50 €), pavo (+3,50 €), salmón (+4,50 €) y queso (+3,50 €).": "Step 3: Add extras: poached egg (+€3.90), avocado (+€3.90), homemade hummus (+€3.50), turkey (+€3.50), salmon (+€4.50) and cheese (+€3.50).",
+  "Paso 3: Añade extras: Huevo poché (+3,90 €), aguacate (+3,90 €), jamón de pavo (+3,50 €), salmón (+4,50 €) y queso (+3,50 €).": "Step 3: Add extras: poached egg (+€3.90), avocado (+€3.90), turkey ham (+€3.50), salmon (+€4.50) and cheese (+€3.50).",
   "Bagel de pavo y aguacate o panino de pollo. Incluye: Zumo de naranja o zumo mix del día; café o infusión; bizcocho casero o napolitana de chocolate; yogur natural con granola y miel.": "Turkey & avocado bagel or chicken panini. Includes: orange juice or seasonal mixed juice; coffee or infusion; homemade cake or chocolate pain au chocolat; natural yogurt with granola and honey.",
   "Tosta de aguacate con dos huevos poché o tosta de ibérico, tomate y queso semicurado. Incluye: Café o infusión; zumo de naranja o zumo mix del día; bizcocho casero o napolitana de chocolate; yogur natural con granola y miel.": "Avocado toast with two poached eggs or Iberian ham, tomato & semi-cured cheese toast. Includes: coffee or infusion; orange juice or seasonal mixed juice; homemade cake or chocolate pain au chocolat; natural yogurt with granola and honey.",
   "Tortitas healthy o Fitbowl. Incluye: Zumo de naranja o zumo del día; tosta con tomate y aceite de oliva virgen; café o infusión.": "Healthy pancakes or Fitbowl. Includes: orange juice or juice of the day; tomato & extra virgin olive oil toast; coffee or infusion.",
@@ -130,7 +141,7 @@ const englishTranslations: Record<string, string> = {
   "Pollo a la naranja, noodles de calabacín, zanahoria, col lombarda, pepino, arroz salvaje, cebolla crusty, cilantro, almendras y vinagreta de anacardos.": "Orange chicken, courgette noodles, carrot, red cabbage, cucumber, wild rice, crispy onion, coriander, almonds and cashew vinaigrette.",
   "Elige 2 bases, 1 proteína y 2 ingredientes.": "Choose 2 bases, 1 protein and 2 ingredients.",
   "Elige 2 bases, 1 proteína y 3 ingredientes.": "Choose 2 bases, 1 protein and 3 ingredients.",
-  "SÚPER WRAP: Convierte toda tu ensalada en un Súper Wrap envuelta en una tortilla y con un toque al grill por +1,90 €. Extras Premium: Aguacate (+3,90 €), Extra Proteína (+3,90 €).": "SUPER WRAP: Turn your whole salad into a Super Wrap in a tortilla, finished on the grill, for +€1.90. Premium extras: avocado (+€3.90), extra protein (+€3.90).",
+  "SÚPER WRAP: Convierte toda tu ensalada en un Súper Wrap envuelta en una tortilla y con un toque al grill por +1,90 €. Extras Premium: Aguacate (+3,90 €), Extra Proteína (+3,90 €), Extra de ingrediente (+2,00 €).": "SUPER WRAP: Turn your whole salad into a Super Wrap in a tortilla, finished on the grill, for +€1.90. Premium extras: avocado (+€3.90), extra protein (+€3.90), extra ingredient (+€2.00).",
   "Tofu marinado en soja y miel mostaza, arroz integral con verduritas, boniato al horno, pico de gallo, aguacate y salsa de soja con naranja.": "Tofu marinated in soy and honey mustard, brown rice with vegetables, oven-baked sweet potato, pico de gallo, avocado and orange soy sauce.",
   "Lomo de salmón al grill, arroz integral con verduritas, boniato al horno, pico de gallo, aguacate y salsa cítrica.": "Grilled salmon fillet, brown rice with vegetables, oven-baked sweet potato, pico de gallo, avocado and citrus sauce.",
   "Slow cooked pulled pork, arroz integral, frijoles negros, plátano maduro asado, pico de gallo, aguacate, tortilla crujiente y salsa de miel mostaza.": "Slow-cooked pulled pork, brown rice, black beans, roasted ripe plantain, pico de gallo, avocado, crispy tortilla and honey mustard sauce.",
@@ -240,7 +251,7 @@ const customSalad: MenuGroup = {
     { name: "Opción 2", price: "13,90 €", description: "Elige 2 bases, 1 proteína y 3 ingredientes." },
   ],
   note:
-    "SÚPER WRAP: Convierte toda tu ensalada en un Súper Wrap envuelta en una tortilla y con un toque al grill por +1,90 €. Extras Premium: Aguacate (+3,90 €), Extra Proteína (+3,90 €).",
+    "SÚPER WRAP: Convierte toda tu ensalada en un Súper Wrap envuelta en una tortilla y con un toque al grill por +1,90 €. Extras Premium: Aguacate (+3,90 €), Extra Proteína (+3,90 €), Extra de ingrediente (+2,00 €).",
 };
 
 const bagels: MenuGroup = {
@@ -255,7 +266,7 @@ const bagels: MenuGroup = {
     { name: "Atún Spicy", price: "12,50 €", description: "Atún spicy, aderezo de chipotle, tomate y mix de lechugas y aguacate." },
   ],
   note:
-    "Paso 3: Añade extras: Huevo poché (+3,90 €), aguacate (+3,90 €), hummus casero (+3,50 €), pavo (+3,50 €), salmón (+4,50 €) y queso (+3,50 €).",
+    "Paso 3: Añade extras: Huevo poché (+3,90 €), aguacate (+3,90 €), jamón de pavo (+3,50 €), salmón (+4,50 €) y queso (+3,50 €).",
 };
 
 const tostas: MenuGroup = {
@@ -337,15 +348,15 @@ const juices: MenuGroup = {
 };
 
 const smoothies: MenuGroup = {
-  title: "Protein Smoothies",
+  title: "Shakes de proteína",
   items: [
-    { name: "Green Energy", price: "9,50 €" },
-    { name: "Berry Blast", price: "9,50 €" },
-    { name: "Tropical Sunshine", price: "9,50 €" },
-    { name: "Dark Cacao Protein", price: "9,50 €" },
-    { name: "Flow Bomb", price: "9,50 €" },
+    { name: "Glow Bomb", price: "9,50 €", description: "Plátano, espinaca, proteína de vainilla, mantequilla de almendra, avena, canela y vainilla. 25–30 g de proteína." },
+    { name: "Crack Shake", price: "9,50 €", description: "Cacao, proteína de chocolate, dátil, chía, canela y vainilla. 24–28 g de proteína." },
+    { name: "Pink Velvet", price: "9,50 €", description: "Frutos rojos, proteína de vainilla, creatina, semillas, canela y vainilla. 23–27 g de proteína." },
+    { name: "Brain Fuel", price: "9,50 €", description: "Espresso, proteína de chocolate, yogur griego, plátano, chía, canela y vainilla. 30–35 g de proteína." },
+    { name: "Rebuild Shake", price: "9,50 €", description: "Proteína de chocolate, creatina, plátano, avena y nuez. 25–30 g de proteína." },
   ],
-  note: "Añade un extra: proteína, creatina, colágeno o crema de cacahuete.",
+  note: "Elige tu base: Avena · Almendra · Coco · Hi-protein. Extras: Proteína extra (+1,50 €), crema de cacahuete (+1,00 €) o toppings (+1,00 €).",
 };
 
 const coffee: MenuGroup = {
@@ -376,6 +387,18 @@ const kombucha: MenuGroup = {
     { name: "Kombucha Ginger and Lemon", price: "3,80 €" },
     { name: "Kombucha Wild Berries", price: "3,80 €" },
     { name: "Kombucha Lime and Mint", price: "3,80 €" },
+  ],
+};
+
+const beers: MenuGroup = {
+  title: "Cervezas",
+  items: [
+    { name: "Estrella de Galicia Caña", price: "4,00 €" },
+    { name: "Estrella de Galicia Doble", price: "4,50 €" },
+    { name: "Estrella de Galicia Sin gluten", price: "4,00 €" },
+    { name: "Estrella de Galicia 0,0", price: "3,50 €" },
+    { name: "Cerveza 1906", price: "4,80 €" },
+    { name: "Clarita", price: "5,00 €" },
   ],
 };
 
@@ -629,7 +652,7 @@ export default function Home() {
             </div>
             <div className="protein-chapter">
               <MenuList group={smoothies} translate={translate} />
-              <ProductPhoto src={assets.smoothies} label="Protein Smoothies" translate={translate} fit="focus" />
+              <ProductPhoto src={assets.smoothies} label="Shakes de proteína" translate={translate} fit="focus" />
             </div>
           </div>
         </section>
@@ -651,6 +674,7 @@ export default function Home() {
             <div className="subsection-divider" />
             <MenuList group={coffee} translate={translate} compact />
             <MenuList group={kombucha} translate={translate} compact subtleHeading />
+            <MenuList group={beers} translate={translate} compact subtleHeading />
           </div>
           <PhotoCarousel label="Café y Matcha" translate={translate} carouselPhotos={text.carouselPhotos} carouselView={text.carouselView} slides={[
             { src: assets.coffee, label: "Café PLENO" },
