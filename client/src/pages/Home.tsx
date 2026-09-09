@@ -399,15 +399,15 @@ const beers: MenuGroup = {
     { name: "Estrella de Galicia Sin gluten", price: "4,00 €" },
     { name: "Estrella de Galicia 0,0", price: "3,50 €" },
     { name: "Cerveza 1906", price: "4,80 €" },
-    { name: "Clarita", price: "5,00 €" },
+    { name: "Clarita", price: "4,50 €" },
   ],
 };
 
 const wines: MenuGroup = {
   title: "Vinos por copa",
   items: [
-    { name: "Verdejo", price: "4,00 €" },
-    { name: "Rioja", price: "4,00 €" },
+    { name: "Verdejo", price: "3,50 €" },
+    { name: "Rioja", price: "3,50 €" },
   ],
 };
 
