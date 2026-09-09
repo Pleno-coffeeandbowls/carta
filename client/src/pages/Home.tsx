@@ -20,6 +20,8 @@ type MenuGroup = {
   note?: string;
 };
 
+type Language = "es" | "en";
+
 const asset = (filename: string) => `${import.meta.env.BASE_URL}assets/${filename}`;
 const WELCOME_STORAGE_KEY = "pleno:club-welcome-v1";
 const CLUB_PLENO_URL = "https://take.cards/s5msH";
@@ -42,15 +44,114 @@ const assets = {
 };
 
 const navItems = [
-  { id: "bagels-paninos", label: "Bagels & Paninos" },
-  { id: "tostas", label: "Tostas y croissants" },
+  { id: "bagels-paninos", label: "Bagels & Paninos", labelEn: "Bagels & Paninis" },
+  { id: "tostas", label: "Tostas y croissants", labelEn: "Toasts & Croissants" },
   { id: "brunch", label: "Brunch" },
-  { id: "bowls-frios", label: "Bowls fríos" },
-  { id: "bowls-calientes", label: "Bowls calientes" },
-  { id: "acai-protein", label: "Açaí o protein bowl" },
-  { id: "dulces", label: "Dulces" },
-  { id: "bebidas", label: "Bebidas" },
+  { id: "bowls-frios", label: "Bowls fríos", labelEn: "Cold Bowls" },
+  { id: "bowls-calientes", label: "Bowls calientes", labelEn: "Warm Bowls" },
+  { id: "acai-protein", label: "Açaí o protein bowl", labelEn: "Açaí or Protein Bowl" },
+  { id: "dulces", label: "Dulces", labelEn: "Sweets" },
+  { id: "bebidas", label: "Bebidas", labelEn: "Drinks" },
 ];
+
+const englishTranslations: Record<string, string> = {
+  "Bagels & Paninos": "Bagels & Paninis",
+  "Platos calientes": "Warm bowls",
+  "Ensaladas frescas": "Fresh salads",
+  "Crea tu propia ensalada": "Build your own salad",
+  "Crea tu bagel o panino": "Build your bagel or panini",
+  "Tostas · Pan de masa madre": "Toasts · Sourdough bread",
+  "Tostas y croissants": "Toasts & Croissants",
+  "Tosta de Aguacate & Huevo Poché": "Avocado & Poached Egg Toast",
+  "Brunch con tosta": "Toast Brunch",
+  "Brunch con bagel": "Bagel Brunch",
+  "BOWL AVOCADO": "AVOCADO BOWL",
+  "Café PLENO": "PLENO Coffee",
+  "Bowls fríos": "Cold Bowls",
+  "Bowls calientes": "Warm Bowls",
+  "Dulces": "Sweets",
+  "Zumos naturales": "Fresh juices",
+  "Café & Matcha": "Coffee & Matcha",
+  "Salmón": "Salmon",
+  "Pollo miel mostaza": "Honey Mustard Chicken",
+  "Pavo & Aguacate": "Turkey & Avocado",
+  "Pollo pesto": "Pesto Chicken",
+  "Atún Spicy": "Spicy Tuna",
+  "Aguacate & Huevo Poché": "Avocado & Poached Egg",
+  "Salmón y queso crema": "Salmon & Cream Cheese",
+  "Jamón Ibérico & Tomate": "Iberian Ham & Tomato",
+  "Tomate y aceite de oliva virgen extra": "Tomato & Extra Virgin Olive Oil",
+  "Croissant solo": "Plain Croissant",
+  "Croissant de york y queso": "Ham & Cheese Croissant",
+  "Croissant de ibérico y tomate": "Iberian Ham & Tomato Croissant",
+  "Croissant de atún vegetal": "Plant-Based Tuna Croissant",
+  "Croissant de crema de cacao": "Cocoa Cream Croissant",
+  "Croissant de mantequilla de maní y mermelada": "Peanut Butter & Jam Croissant",
+  "Opción 1": "Option 1",
+  "Opción 2": "Option 2",
+  "Café solo · Espresso": "Espresso",
+  "Café con leche": "Coffee with Milk",
+  "Café con leche XL": "Coffee with Milk XL",
+  "Café con leche sin lactosa, soja o avena": "Coffee with Lactose-Free, Soy or Oat Milk",
+  "Café con leche sin lactosa, soja o avena XL": "Coffee with Lactose-Free, Soy or Oat Milk XL",
+  "Té e infusiones": "Tea & Infusions",
+  "Matcha Latte Caliente": "Hot Matcha Latte",
+  "Matcha Latte Frío": "Iced Matcha Latte",
+  "Ube Latte Caliente": "Hot Ube Latte",
+  "Ube Latte Frío": "Iced Ube Latte",
+  "Tarta de zanahoria · saludable, con harina de almendras": "Carrot cake · made with almond flour",
+  "Tarta de banana · saludable, con harina de almendras": "Banana cake · made with almond flour",
+  "Rol de canela": "Cinnamon Roll",
+  "Mini napolitana": "Mini Pain au Chocolat",
+  "Purify · Naranja + Zanahoria": "Purify · Orange + Carrot",
+  "Chillout · Naranja + Fresa + Plátano": "Chillout · Orange + Strawberry + Banana",
+  "Healthy · Naranja + Zanahoria + Remolacha": "Healthy · Orange + Carrot + Beetroot",
+  "Digestive · Naranja + Piña + Plátano": "Digestive · Orange + Pineapple + Banana",
+  "Detox · Naranja + Manzana + Espinaca + Pepino + Jengibre + Apio": "Detox · Orange + Apple + Spinach + Cucumber + Ginger + Celery",
+  "Kombucha Ginger and Lemon": "Ginger & Lemon Kombucha",
+  "Kombucha Wild Berries": "Wild Berries Kombucha",
+  "Kombucha Lime and Mint": "Lime & Mint Kombucha",
+  "Salmón ahumado, queso crema, cebolla encurtida y rúcula.": "Smoked salmon, cream cheese, pickled onion and rocket.",
+  "Pollo al grill, tomate natural, queso edam y miel mostaza.": "Grilled chicken, fresh tomato, Edam cheese and honey mustard.",
+  "Pavo, aguacate, tomate y aceite de oliva virgen extra.": "Turkey, avocado, tomato and extra virgin olive oil.",
+  "Pollo al grill, tomate, noodles de calabacín y pesto casero.": "Grilled chicken, tomato, courgette noodles and homemade pesto.",
+  "Pulled pork, coleslaw y bastones de boniato al horno.": "Pulled pork, coleslaw and oven-baked sweet potato fries.",
+  "Atún spicy, aderezo de chipotle, tomate y mix de lechugas y aguacate.": "Spicy tuna, chipotle dressing, tomato, mixed leaves and avocado.",
+  "Paso 3: Añade extras: Huevo poché (+3,90 €), aguacate (+3,90 €), hummus casero (+3,50 €), pavo (+3,50 €), salmón (+4,50 €) y queso (+3,50 €).": "Step 3: Add extras: poached egg (+€3.90), avocado (+€3.90), homemade hummus (+€3.50), turkey (+€3.50), salmon (+€4.50) and cheese (+€3.50).",
+  "Bagel de pavo y aguacate o panino de pollo. Incluye: Zumo de naranja o zumo mix del día; café o infusión; bizcocho casero o napolitana de chocolate; yogur natural con granola y miel.": "Turkey & avocado bagel or chicken panini. Includes: orange juice or seasonal mixed juice; coffee or infusion; homemade cake or chocolate pain au chocolat; natural yogurt with granola and honey.",
+  "Tosta de aguacate con dos huevos poché o tosta de ibérico, tomate y queso semicurado. Incluye: Café o infusión; zumo de naranja o zumo mix del día; bizcocho casero o napolitana de chocolate; yogur natural con granola y miel.": "Avocado toast with two poached eggs or Iberian ham, tomato & semi-cured cheese toast. Includes: coffee or infusion; orange juice or seasonal mixed juice; homemade cake or chocolate pain au chocolat; natural yogurt with granola and honey.",
+  "Tortitas healthy o Fitbowl. Incluye: Zumo de naranja o zumo del día; tosta con tomate y aceite de oliva virgen; café o infusión.": "Healthy pancakes or Fitbowl. Includes: orange juice or juice of the day; tomato & extra virgin olive oil toast; coffee or infusion.",
+  "¿Prefieres nuestro bagel de salmón o nuestra tosta de salmón y queso crema? Por +3,50 € más puedes elegir este principal en Bagel Brunch y Tosta Brunch.": "Prefer our salmon bagel or salmon & cream cheese toast? For an additional €3.50, choose it as the main dish in Bagel Brunch and Toast Brunch.",
+  "Pollo cúrcuma, aguacate, tomatitos cherry, col lombarda, cebolla morada, nachos, espinaca baby, mézclum y pesto de cilantro con lima.": "Turmeric chicken, avocado, cherry tomatoes, red cabbage, red onion, nachos, baby spinach, mixed leaves and coriander-lime pesto.",
+  "Lentejas, garbanzos, boniato y brócoli al horno, col lombarda, almendras tostadas, remolacha, espinacas baby, kale y vinagreta cítrica de frutos rojos.": "Lentils, chickpeas, oven-baked sweet potato and broccoli, red cabbage, toasted almonds, beetroot, baby spinach, kale and red berry citrus vinaigrette.",
+  "Pollo a la naranja, noodles de calabacín, pipas de calabaza tostadas, tomatitos cherry, cilantro, queso feta, crotones, rúcula, mézclum, aceite de albahaca y salsa de yogurt.": "Orange chicken, courgette noodles, toasted pumpkin seeds, cherry tomatoes, coriander, feta cheese, croutons, rocket, mixed leaves, basil oil and yogurt sauce.",
+  "Pollo cúrcuma, calabaza al horno, quinoa, espinacas baby, kale rostizado, zanahoria, col lombarda, almendras tostadas y salsa de miel mostaza.": "Turmeric chicken, oven-baked squash, quinoa, baby spinach, roasted kale, carrot, red cabbage, toasted almonds and honey mustard sauce.",
+  "Tofu asado, mix de portobellos, remolacha, pepino, pipas de calabaza, cebolla encurtida, arroz salvaje, kale, sésamo y vinagreta de soja jengibre.": "Roasted tofu, mixed portobello mushrooms, beetroot, cucumber, pumpkin seeds, pickled onion, wild rice, kale, sesame and soy-ginger vinaigrette.",
+  "Pollo a la naranja, noodles de calabacín, zanahoria, col lombarda, pepino, arroz salvaje, cebolla crusty, cilantro, almendras y vinagreta de anacardos.": "Orange chicken, courgette noodles, carrot, red cabbage, cucumber, wild rice, crispy onion, coriander, almonds and cashew vinaigrette.",
+  "Elige 2 bases, 1 proteína y 2 ingredientes.": "Choose 2 bases, 1 protein and 2 ingredients.",
+  "Elige 2 bases, 1 proteína y 3 ingredientes.": "Choose 2 bases, 1 protein and 3 ingredients.",
+  "SÚPER WRAP: Convierte toda tu ensalada en un Súper Wrap envuelta en una tortilla y con un toque al grill por +1,90 €. Extras Premium: Aguacate (+3,90 €), Extra Proteína (+3,90 €).": "SUPER WRAP: Turn your whole salad into a Super Wrap in a tortilla, finished on the grill, for +€1.90. Premium extras: avocado (+€3.90), extra protein (+€3.90).",
+  "Tofu marinado en soja y miel mostaza, arroz integral con verduritas, boniato al horno, pico de gallo, aguacate y salsa de soja con naranja.": "Tofu marinated in soy and honey mustard, brown rice with vegetables, oven-baked sweet potato, pico de gallo, avocado and orange soy sauce.",
+  "Lomo de salmón al grill, arroz integral con verduritas, boniato al horno, pico de gallo, aguacate y salsa cítrica.": "Grilled salmon fillet, brown rice with vegetables, oven-baked sweet potato, pico de gallo, avocado and citrus sauce.",
+  "Slow cooked pulled pork, arroz integral, frijoles negros, plátano maduro asado, pico de gallo, aguacate, tortilla crujiente y salsa de miel mostaza.": "Slow-cooked pulled pork, brown rice, black beans, roasted ripe plantain, pico de gallo, avocado, crispy tortilla and honey mustard sauce.",
+  "Pechuga de pollo marinada con naranja al grill, quinoa, boniato al horno, pico de gallo, aguacate y salsa pesto de cilantro.": "Orange-marinated grilled chicken breast, quinoa, oven-baked sweet potato, pico de gallo, avocado and coriander pesto sauce.",
+  "Entrecot al grill, arroz, brócoli, boniato o patata, champiñones salteados, aguacate y pico de gallo.": "Grilled entrecôte, rice, broccoli, sweet potato or potato, sautéed mushrooms, avocado and pico de gallo.",
+  "Añade extra de proteína por +5,50 €.": "Add extra protein for +€5.50.",
+  "Base de açaí original.": "Original açaí base.",
+  "Base de yogur griego.": "Greek yogurt base.",
+  "Añade un extra: proteína, creatina, colágeno o crema de cacahuete.": "Add an extra: protein, creatine, collagen or peanut butter.",
+  "Con leche, hielo y sirope.": "With milk, ice and syrup.",
+  "Hierbas filipinas con notas a vainilla y frutos secos. Cero cafeína.": "Filipino herbs with vanilla and nutty notes. Caffeine-free.",
+};
+
+const interfaceText = {
+  es: {
+    htmlLang: "es", headerLabel: "Cabecera de carta PLENO", brandLabel: "PLENO, volver al inicio", heroTitle: "Estado en el que descubres que cuidarte también puede disfrutarse.", heroText: "Ocurre cuando la buena comida, el tiempo bien invertido y las personas correctas se encuentran en el mismo lugar.", indexTitle: "Carta", navLabel: "Categorías de la carta", languageLabel: "Seleccionar idioma", carouselPhotos: "Fotos de", carouselView: "Ver", communityLabel: "Comunidad PLENO", reviewEyebrow: "PINALE Brunch & Market Bowls", reviewTitle: "Queremos saber tu opinión.", reviewText: "Publica una reseña en nuestro perfil.", reviewCta: "Dejar reseña", clubEyebrow: "Healthy Social Club", clubText: "Crea tu tarjeta de fidelización y empieza con 10 puntos de bienvenida.", clubCta: "Crear mi tarjeta", topLabel: "Volver al inicio de la carta", closeWelcome: "Cerrar aviso de bienvenida", welcomeTitle: "10 puntos de bienvenida", welcomeText: "Crea tu tarjeta de fidelización de Club Pleno y empieza con 10 puntos.", welcomeCta: "Crear mi tarjeta", welcomeDismiss: "Ahora no",
+  },
+  en: {
+    htmlLang: "en", headerLabel: "PLENO menu header", brandLabel: "PLENO, back to top", heroTitle: "A state where looking after yourself can also be enjoyed.", heroText: "It happens when good food, time well spent and the right people come together in the same place.", indexTitle: "Menu", navLabel: "Menu categories", languageLabel: "Choose language", carouselPhotos: "Photos of", carouselView: "View", communityLabel: "PLENO community", reviewEyebrow: "PINALE Brunch & Market Bowls", reviewTitle: "We would love to hear from you.", reviewText: "Leave us a review on our profile.", reviewCta: "Leave a review", clubEyebrow: "Healthy Social Club", clubText: "Create your loyalty card and start with 10 welcome points.", clubCta: "Create my card", topLabel: "Back to the top of the menu", closeWelcome: "Close welcome notice", welcomeTitle: "10 welcome points", welcomeText: "Create your Club Pleno loyalty card and start with 10 points.", welcomeCta: "Create my card", welcomeDismiss: "Not now",
+  },
+} as const;
 
 const marketBowls: MenuGroup = {
   eyebrow: "Platos calientes",
@@ -278,60 +379,60 @@ const kombucha: MenuGroup = {
   ],
 };
 
-function MenuList({ group, compact = false, subtleHeading = false }: { group: MenuGroup; compact?: boolean; subtleHeading?: boolean }) {
+function MenuList({ group, translate, compact = false, subtleHeading = false }: { group: MenuGroup; translate: (text?: string) => string | undefined; compact?: boolean; subtleHeading?: boolean }) {
   return (
     <div className={`menu-list ${compact ? "menu-list--compact" : ""} ${subtleHeading ? "menu-list--subtle" : ""}`}>
       <div className="section-heading">
-        {group.eyebrow && <p className="eyebrow">{group.eyebrow}</p>}
-        <h2>{group.title}</h2>
-        {group.intro && <p className="section-intro">{group.intro}</p>}
+        {group.eyebrow && <p className="eyebrow">{translate(group.eyebrow)}</p>}
+        <h2>{translate(group.title)}</h2>
+        {group.intro && <p className="section-intro">{translate(group.intro)}</p>}
         <div className="section-editorial-rule" aria-hidden="true"><span /></div>
       </div>
       <div className="item-stack">
         {group.items.map((item, index) => (
           <article className="menu-item" key={`${item.name}-${index}`}>
             <div className="item-line">
-              <h3>{item.name}</h3>
+              <h3>{translate(item.name)}</h3>
               <span className="item-price">{item.price}</span>
             </div>
-            {item.description && <p>{item.description}</p>}
+            {item.description && <p>{translate(item.description)}</p>}
           </article>
         ))}
       </div>
-      {group.note && <p className="section-note">{group.note}</p>}
+      {group.note && <p className="section-note">{translate(group.note)}</p>}
     </div>
   );
 }
 
-function ProductPhoto({ src, label, priority = false, fit = "cover" }: { src: string; label: string; priority?: boolean; fit?: "cover" | "contain" | "focus" }) {
+function ProductPhoto({ src, label, translate, priority = false, fit = "cover" }: { src: string; label: string; translate: (text?: string) => string | undefined; priority?: boolean; fit?: "cover" | "contain" | "focus" }) {
   return (
     <figure className={`product-photo product-photo--${fit}`}>
       <div className="photo-frame">
-        <img src={src} alt={label} loading={priority ? "eager" : "lazy"} />
+        <img src={src} alt={translate(label) ?? label} loading={priority ? "eager" : "lazy"} />
       </div>
-      <figcaption>{label}</figcaption>
+      <figcaption>{translate(label)}</figcaption>
     </figure>
   );
 }
 
-function PhotoCarousel({ slides, label }: { slides: Array<{ src: string; label: string }>; label: string }) {
+function PhotoCarousel({ slides, label, translate, carouselPhotos, carouselView }: { slides: Array<{ src: string; label: string }>; label: string; translate: (text?: string) => string | undefined; carouselPhotos: string; carouselView: string }) {
   const [activeSlide, setActiveSlide] = useState(0);
   const slide = slides[activeSlide];
 
   return (
-    <figure className="product-carousel" aria-label={label}>
+    <figure className="product-carousel" aria-label={translate(label)}>
       <div className="carousel-frame">
-        <img src={slide.src} alt={slide.label} loading="lazy" />
+        <img src={slide.src} alt={translate(slide.label) ?? slide.label} loading="lazy" />
       </div>
-      <figcaption>{slide.label}</figcaption>
-      <div className="carousel-nav" role="tablist" aria-label={`Fotos de ${label}`}>
+      <figcaption>{translate(slide.label)}</figcaption>
+      <div className="carousel-nav" role="tablist" aria-label={`${carouselPhotos} ${translate(label)}`}>
         {slides.map((item, index) => (
           <button
             key={item.src}
             type="button"
             role="tab"
             aria-selected={activeSlide === index}
-            aria-label={`Ver ${item.label}`}
+            aria-label={`${carouselView} ${translate(item.label)}`}
             className={activeSlide === index ? "carousel-dot is-active" : "carousel-dot"}
             onClick={() => setActiveSlide(index)}
           />
@@ -342,9 +443,17 @@ function PhotoCarousel({ slides, label }: { slides: Array<{ src: string; label: 
 }
 
 export default function Home() {
+  const [language, setLanguage] = useState<Language>("es");
   const [active, setActive] = useState("bagels-paninos");
   const [showTop, setShowTop] = useState(false);
   const [showWelcome, setShowWelcome] = useState(false);
+  const text = interfaceText[language];
+  const translate = (value?: string) => language === "en" && value ? (englishTranslations[value] ?? value) : value;
+
+  useEffect(() => {
+    document.documentElement.lang = text.htmlLang;
+    document.title = language === "en" ? "PLENO · Digital Menu" : "PLENO · Carta digital";
+  }, [language, text.htmlLang]);
 
   useEffect(() => {
     const sections = navItems
@@ -399,28 +508,33 @@ export default function Home() {
 
   return (
     <main>
-      <header className="site-header" aria-label="Cabecera de carta PLENO">
+      <header className="site-header" aria-label={text.headerLabel}>
         <div className="header-inner">
-          <a className="brand" href="#inicio" aria-label="PLENO, volver al inicio">
+          <a className="brand" href="#inicio" aria-label={text.brandLabel}>
             <img src={assets.logo} alt="PLENO" />
           </a>
+          <div className="language-switch" role="group" aria-label={text.languageLabel}>
+            <button type="button" className={language === "es" ? "is-active" : ""} onClick={() => setLanguage("es")} aria-pressed={language === "es"}>ES</button>
+            <span aria-hidden="true">/</span>
+            <button type="button" className={language === "en" ? "is-active" : ""} onClick={() => setLanguage("en")} aria-pressed={language === "en"}>EN</button>
+          </div>
         </div>
       </header>
 
       <section className="hero" id="inicio" aria-labelledby="hero-title">
         <div className="hero-copy">
           <p className="hero-pronunciation">/ˈple.no/</p>
-          <h1 id="hero-title">Estado en el que descubres que cuidarte también puede disfrutarse.</h1>
-          <p className="hero-text">Ocurre cuando la buena comida, el tiempo bien invertido y las personas correctas se encuentran en el mismo lugar.</p>
+          <h1 id="hero-title">{text.heroTitle}</h1>
+          <p className="hero-text">{text.heroText}</p>
         </div>
         <div className="hero-visual" aria-hidden="true">
           <img className="hero-food" src={assets.salmonBowl} alt="" fetchPriority="high" />
         </div>
       </section>
 
-      <nav className="category-nav" aria-label="Categorías de la carta">
+      <nav className="category-nav" aria-label={text.navLabel}>
         <div className="category-rail">
-          <span className="index-title" aria-hidden="true">Carta</span>
+          <span className="index-title" aria-hidden="true">{text.indexTitle}</span>
           {navItems.map((item, index) => (
             <button
               type="button"
@@ -430,21 +544,21 @@ export default function Home() {
               data-index={`0${index + 1}`}
               aria-current={active === item.id ? "true" : undefined}
             >
-              {item.label}
+              {language === "en" ? item.labelEn ?? item.label : item.label}
             </button>
           ))}
         </div>
       </nav>
 
       <div className="menu-shell">
-        <section className="menu-section menu-section--panes" id="bagels-paninos" aria-label="Bagels y paninos">
+        <section className="menu-section menu-section--panes" id="bagels-paninos" aria-label={language === "en" ? "Bagels and paninis" : "Bagels y paninos"}>
           <div className="section-number" aria-hidden="true">01</div>
           <div className="panes-flow">
             <div className="panes-chapter">
               <div className="section-copy">
-                <MenuList group={bagels} />
+                <MenuList group={bagels} translate={translate} />
               </div>
-              <PhotoCarousel label="Bagels y paninos" slides={[
+              <PhotoCarousel label="Bagels y paninos" translate={translate} carouselPhotos={text.carouselPhotos} carouselView={text.carouselView} slides={[
                 { src: assets.bagel, label: "Bagel" },
                 { src: assets.panino, label: "Panino" },
               ]} />
@@ -452,20 +566,20 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="menu-section menu-section--panes" id="tostas" aria-label="Tostas y croissants">
+        <section className="menu-section menu-section--panes" id="tostas" aria-label={translate("Tostas y croissants")}>
           <div className="section-number" aria-hidden="true">02</div>
           <div className="panes-flow">
             <div className="panes-chapter panes-chapter--reverse">
-              <ProductPhoto src={assets.eggToast} label="Tosta de Aguacate & Huevo Poché" />
+              <ProductPhoto src={assets.eggToast} label="Tosta de Aguacate & Huevo Poché" translate={translate} />
               <div className="section-copy">
                 <div className="section-heading section-heading--chapter">
-                  <h2>Tostas y croissants</h2>
+                  <h2>{translate("Tostas y croissants")}</h2>
                   <div className="section-editorial-rule" aria-hidden="true"><span /></div>
                 </div>
                 <div className="sweet-groups">
-                  <MenuList group={tostas} compact subtleHeading />
+                  <MenuList group={tostas} translate={translate} compact subtleHeading />
                   <div className="subsection-divider" />
-                  <MenuList group={croissants} compact subtleHeading />
+                  <MenuList group={croissants} translate={translate} compact subtleHeading />
                 </div>
               </div>
             </div>
@@ -477,9 +591,9 @@ export default function Home() {
           <div className="panes-flow">
             <div className="panes-chapter">
               <div className="section-copy">
-                <MenuList group={brunch} />
+                <MenuList group={brunch} translate={translate} />
               </div>
-              <PhotoCarousel label="Brunch PLENO" slides={[
+              <PhotoCarousel label="Brunch PLENO" translate={translate} carouselPhotos={text.carouselPhotos} carouselView={text.carouselView} slides={[
                 { src: assets.brunchToast, label: "Brunch con tosta" },
                 { src: assets.brunchBagel, label: "Brunch con bagel" },
               ]} />
@@ -487,77 +601,77 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="menu-section menu-section--salads" id="bowls-frios" aria-label="Bowls fríos">
+        <section className="menu-section menu-section--salads" id="bowls-frios" aria-label={translate("Bowls fríos")}>
           <div className="section-number" aria-hidden="true">04</div>
-          <ProductPhoto src={assets.coldBowl} label="BOWL AVOCADO" />
+          <ProductPhoto src={assets.coldBowl} label="BOWL AVOCADO" translate={translate} />
           <div className="section-copy">
-            <MenuList group={saladBowls} />
+            <MenuList group={saladBowls} translate={translate} />
             <div className="custom-salad-block">
-              <MenuList group={customSalad} compact />
+              <MenuList group={customSalad} translate={translate} compact />
             </div>
           </div>
         </section>
 
-        <section className="menu-section menu-section--bowls" id="bowls-calientes" aria-label="Bowls calientes">
+        <section className="menu-section menu-section--bowls" id="bowls-calientes" aria-label={translate("Bowls calientes")}>
           <div className="section-number" aria-hidden="true">05</div>
           <div className="section-copy">
-            <MenuList group={marketBowls} />
+            <MenuList group={marketBowls} translate={translate} />
           </div>
-          <ProductPhoto src={assets.beefBowl} label="Steak Bowl" priority />
+          <ProductPhoto src={assets.beefBowl} label="Steak Bowl" translate={translate} priority />
         </section>
 
-        <section className="menu-section menu-section--sweet menu-section--protein" id="acai-protein" aria-label="Açaí o protein bowl">
+        <section className="menu-section menu-section--sweet menu-section--protein" id="acai-protein" aria-label={language === "en" ? "Açaí or Protein Bowl" : "Açaí o protein bowl"}>
           <div className="section-number" aria-hidden="true">06</div>
           <div className="section-copy section-copy--paired protein-layout">
             <div className="protein-chapter">
-              <MenuList group={acai} />
-              <ProductPhoto src={assets.acai} label="Açaí Bowl" />
+              <MenuList group={acai} translate={translate} />
+              <ProductPhoto src={assets.acai} label="Açaí Bowl" translate={translate} />
             </div>
             <div className="protein-chapter">
-              <MenuList group={smoothies} />
-              <ProductPhoto src={assets.smoothies} label="Protein Smoothies" fit="focus" />
+              <MenuList group={smoothies} translate={translate} />
+              <ProductPhoto src={assets.smoothies} label="Protein Smoothies" translate={translate} fit="focus" />
             </div>
           </div>
         </section>
 
-        <section className="menu-section menu-section--sweet" id="dulces" aria-label="Dulces">
+        <section className="menu-section menu-section--sweet" id="dulces" aria-label={translate("Dulces")}>
           <div className="section-number" aria-hidden="true">07</div>
           <div className="section-copy">
-            <MenuList group={sweet} />
+            <MenuList group={sweet} translate={translate} />
           </div>
         </section>
 
-        <section className="menu-section menu-section--drinks" id="bebidas" aria-label="Bebidas">
+        <section className="menu-section menu-section--drinks" id="bebidas" aria-label={translate("Bebidas")}>
           <div className="section-number" aria-hidden="true">08</div>
           <div className="section-copy drinks-layout">
-            <MenuList group={juices} />
-            <div className="drink-photos" aria-label="Bebidas PLENO">
-              <ProductPhoto src={assets.juices} label="Zumos naturales" fit="focus" />
+            <MenuList group={juices} translate={translate} />
+            <div className="drink-photos" aria-label={language === "en" ? "PLENO drinks" : "Bebidas PLENO"}>
+              <ProductPhoto src={assets.juices} label="Zumos naturales" translate={translate} fit="focus" />
             </div>
             <div className="subsection-divider" />
-            <MenuList group={coffee} compact />
-            <MenuList group={kombucha} compact subtleHeading />
+            <MenuList group={coffee} translate={translate} compact />
+            <MenuList group={kombucha} translate={translate} compact subtleHeading />
           </div>
-          <PhotoCarousel label="Café y Matcha" slides={[
+          <PhotoCarousel label="Café y Matcha" translate={translate} carouselPhotos={text.carouselPhotos} carouselView={text.carouselView} slides={[
             { src: assets.coffee, label: "Café PLENO" },
             { src: assets.matcha, label: "Matcha" },
           ]} />
         </section>
       </div>
 
-      <section className="community-section" aria-label="Comunidad PLENO">
+      <section className="community-section" aria-label={text.communityLabel}>
         <a className="review-card" href="https://g.page/r/CULdYcpP4womEBE/review" target="_blank" rel="noreferrer">
-          <span className="eyebrow">PINALE Brunch & Market Bowls</span>
-          <h2>Queremos saber tu opinión.</h2>
-          <p>Publica una reseña en nuestro perfil.</p>
-          <span className="community-link">Dejar reseña <ExternalLink size={17} aria-hidden="true" /></span>
+          <span className="eyebrow">{text.reviewEyebrow}</span>
+          <h2>{text.reviewTitle}</h2>
+          <p>{text.reviewText}</p>
+          <span className="community-link">{text.reviewCta} <ExternalLink size={17} aria-hidden="true" /></span>
         </a>
         <div className="club-card" id="healthy-social-club">
-          <span className="eyebrow">Healthy Social Club</span>
+          <span className="eyebrow">{text.clubEyebrow}</span>
           <h2>Good food.<br /><em>Better mood.</em></h2>
-          <p>Crea tu tarjeta de fidelización y empieza con 10 puntos de bienvenida.</p>
+          <p>{text.clubText}</p>
           <a className="club-cta" href={CLUB_PLENO_URL} target="_blank" rel="noreferrer">
-            <Star size={15} fill="currentColor" aria-hidden="true" /> Crear mi tarjeta <ExternalLink size={17} aria-hidden="true" />
+            <Star size={15} fill="currentColor" aria-hidden="true" /> {text.clubCta} <ExternalLink size={17} aria-hidden="true" />
           </a>
         </div>
       </section>
@@ -571,7 +685,7 @@ export default function Home() {
         className={showTop ? "top-button is-visible" : "top-button"}
         type="button"
         onClick={() => goTo("inicio")}
-        aria-label="Volver al inicio de la carta"
+        aria-label={text.topLabel}
       >
         <ArrowUp size={20} aria-hidden="true" />
       </button>
@@ -579,17 +693,17 @@ export default function Home() {
       {showWelcome && (
         <div className="welcome-overlay" role="presentation">
           <section className="welcome-dialog" role="dialog" aria-modal="true" aria-labelledby="welcome-title" aria-describedby="welcome-copy">
-            <button className="welcome-dismiss" type="button" onClick={dismissWelcome} aria-label="Cerrar aviso de bienvenida">
+            <button className="welcome-dismiss" type="button" onClick={dismissWelcome} aria-label={text.closeWelcome}>
               <X size={20} aria-hidden="true" />
             </button>
             <p className="eyebrow">Club Pleno</p>
             <p className="welcome-points" aria-hidden="true">+10</p>
-            <h2 id="welcome-title">10 puntos de bienvenida</h2>
-            <p id="welcome-copy">Crea tu tarjeta de fidelización de Club Pleno y empieza con 10 puntos.</p>
+            <h2 id="welcome-title">{text.welcomeTitle}</h2>
+            <p id="welcome-copy">{text.welcomeText}</p>
             <a className="welcome-cta" href={CLUB_PLENO_URL} target="_blank" rel="noreferrer" onClick={dismissWelcome}>
-              Crear mi tarjeta <ExternalLink size={18} aria-hidden="true" />
+              {text.welcomeCta} <ExternalLink size={18} aria-hidden="true" />
             </a>
-            <button className="welcome-secondary" type="button" onClick={dismissWelcome}>Ahora no</button>
+            <button className="welcome-secondary" type="button" onClick={dismissWelcome}>{text.welcomeDismiss}</button>
           </section>
         </div>
       )}

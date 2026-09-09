@@ -83,6 +83,10 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--sage); outline-
 }
 .brand { display: inline-flex; }
 .brand img { display: block; height: 40px; object-fit: contain; width: auto; }
+.language-switch { align-items: center; display: inline-flex; gap: 3px; position: absolute; right: 20px; }
+.language-switch span { color: var(--sage); font-size: 12px; }
+.language-switch button { background: transparent; border: 0; border-bottom: 1px solid transparent; color: var(--sage); font-size: 11px; font-weight: 800; letter-spacing: 0.08em; min-height: 40px; padding: 0 4px; }
+.language-switch button.is-active { border-bottom-color: var(--deep-olive); color: var(--deep-olive); }
 
 .hero {
   display: grid;
@@ -221,6 +225,7 @@ h1 em { font-style: italic; }
 
 @media (min-width: 680px) {
   .header-inner { padding: 0 32px; }
+  .language-switch { right: 32px; }
   .hero { grid-template-columns: minmax(0, 0.95fr) minmax(330px, 0.72fr); min-height: 476px; padding: 52px 32px; }
   .hero::after { inset: 32px 32px 32px 54%; }
   .hero-visual { min-height: 370px; }
@@ -244,6 +249,7 @@ h1 em { font-style: italic; }
 
 @media (min-width: 1024px) {
   .header-inner { padding: 0 38px; }
+  .language-switch { right: 38px; }
   .hero { padding-left: 38px; padding-right: 38px; }
   .category-rail, .menu-shell { padding-left: 38px; padding-right: 38px; }
   .menu-section { gap: 60px; }
