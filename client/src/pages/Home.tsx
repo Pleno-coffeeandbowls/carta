@@ -73,7 +73,7 @@ const englishTranslations: Record<string, string> = {
   "Bowls calientes": "Warm Bowls",
   "Dulces": "Sweets",
   "Zumos naturales": "Fresh juices",
-  "Café & Matcha": "Coffee & Matcha",
+  "Bebidas": "Drinks",
   "Salmón": "Salmon",
   "Pollo miel mostaza": "Honey Mustard Chicken",
   "Pavo & Aguacate": "Turkey & Avocado",
@@ -360,7 +360,7 @@ const smoothies: MenuGroup = {
 };
 
 const coffee: MenuGroup = {
-  title: "Café & Matcha",
+  title: "Bebidas",
   items: [
     { name: "Café solo · Espresso", price: "2,60 €" },
     { name: "Cortado", price: "2,80 €" },
