@@ -58,6 +58,7 @@ const englishTranslations: Record<string, string> = {
   "Bagels & Paninos": "Bagels & Paninis",
   "Shakes de proteína": "Protein Shakes",
   "Cervezas": "Beers",
+  "Vinos por copa": "Wines by the Glass",
   "Platos calientes": "Warm bowls",
   "Ensaladas frescas": "Fresh salads",
   "Crea tu propia ensalada": "Build your own salad",
@@ -402,6 +403,14 @@ const beers: MenuGroup = {
   ],
 };
 
+const wines: MenuGroup = {
+  title: "Vinos por copa",
+  items: [
+    { name: "Verdejo", price: "4,00 €" },
+    { name: "Rioja", price: "4,00 €" },
+  ],
+};
+
 function MenuList({ group, translate, compact = false, subtleHeading = false }: { group: MenuGroup; translate: (text?: string) => string | undefined; compact?: boolean; subtleHeading?: boolean }) {
   return (
     <div className={`menu-list ${compact ? "menu-list--compact" : ""} ${subtleHeading ? "menu-list--subtle" : ""}`}>
@@ -675,6 +684,7 @@ export default function Home() {
             <MenuList group={coffee} translate={translate} compact />
             <MenuList group={kombucha} translate={translate} compact subtleHeading />
             <MenuList group={beers} translate={translate} compact subtleHeading />
+            <MenuList group={wines} translate={translate} compact subtleHeading />
           </div>
           <PhotoCarousel label="Café y Matcha" translate={translate} carouselPhotos={text.carouselPhotos} carouselView={text.carouselView} slides={[
             { src: assets.coffee, label: "Café PLENO" },
