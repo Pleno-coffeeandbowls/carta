@@ -102,8 +102,8 @@ const englishTranslations: Record<string, string> = {
   "Matcha Latte Frío": "Iced Matcha Latte",
   "Ube Latte Caliente": "Hot Ube Latte",
   "Ube Latte Frío": "Iced Ube Latte",
-  "Tarta de zanahoria · saludable, con harina de almendras": "Carrot cake · made with almond flour",
-  "Tarta de banana · saludable, con harina de almendras": "Banana cake · made with almond flour",
+  "Tarta de zanahoria": "Carrot Cake",
+  "Tarta de banana": "Banana Cake",
   "Rol de canela": "Cinnamon Roll",
   "Mini napolitana": "Mini Pain au Chocolat",
   "Brownie de matcha con sal marina": "Matcha Brownie with Sea Salt",
@@ -336,8 +336,8 @@ const croissants: MenuGroup = {
 const sweet: MenuGroup = {
   title: "Dulces",
   items: [
-    { name: "Tarta de zanahoria · saludable, con harina de almendras", price: "4,50 €" },
-    { name: "Tarta de banana · saludable, con harina de almendras", price: "4,50 €" },
+    { name: "Tarta de zanahoria", price: "4,50 €" },
+    { name: "Tarta de banana", price: "4,50 €" },
     { name: "Rol de canela", price: "4,20 €" },
     { name: "Mini napolitana", price: "2,30 €" },
     { name: "Brownie de matcha con sal marina", price: "4,60 €" },
