@@ -44,6 +44,7 @@ const assets = {
 };
 
 const navItems = [
+  { id: "menu-del-dia", label: "Menú del día", labelEn: "Menu of the Day" },
   { id: "bagels-paninos", label: "Bagels & Paninos", labelEn: "Bagels & Paninis" },
   { id: "tostas", label: "Tostas y croissants", labelEn: "Toasts & Croissants" },
   { id: "brunch", label: "Brunch" },
@@ -54,7 +55,19 @@ const navItems = [
   { id: "bebidas", label: "Bebidas", labelEn: "Drinks" },
 ];
 
+const menuOfTheDay: MenuGroup = {
+  eyebrow: "De lunes a viernes · 13:00–16:30",
+  title: "Menú del día",
+  items: [
+    { name: "Incluye", price: "14,90 €", description: "Crema de verduras, Salad Bowl y agua del día o café." },
+  ],
+};
+
 const englishTranslations: Record<string, string> = {
+  "Menú del día": "Menu of the Day",
+  "De lunes a viernes · 13:00–16:30": "Monday to Friday · 1:00–4:30 PM",
+  "Incluye": "Includes",
+  "Crema de verduras, Salad Bowl y agua del día o café.": "Vegetable cream soup, Salad Bowl, and fresh water of the day or coffee.",
   "Bagels & Paninos": "Bagels & Paninis",
   "Shakes de proteína": "Protein Shakes",
   "Cervezas": "Beers",
@@ -488,7 +501,7 @@ function PhotoCarousel({ slides, label, translate, carouselPhotos, carouselView 
 
 export default function Home() {
   const [language, setLanguage] = useState<Language>("es");
-  const [active, setActive] = useState("bagels-paninos");
+  const [active, setActive] = useState("menu-del-dia");
   const [showTop, setShowTop] = useState(false);
   const [showWelcome, setShowWelcome] = useState(false);
   const text = interfaceText[language];
@@ -595,8 +608,15 @@ export default function Home() {
       </nav>
 
       <div className="menu-shell">
-        <section className="menu-section menu-section--panes" id="bagels-paninos" aria-label={language === "en" ? "Bagels and paninis" : "Bagels y paninos"}>
+        <section className="menu-section menu-section--daily" id="menu-del-dia" aria-label={translate("Menú del día")}>
           <div className="section-number" aria-hidden="true">01</div>
+          <div className="section-copy">
+            <MenuList group={menuOfTheDay} translate={translate} />
+          </div>
+        </section>
+
+        <section className="menu-section menu-section--panes" id="bagels-paninos" aria-label={language === "en" ? "Bagels and paninis" : "Bagels y paninos"}>
+          <div className="section-number" aria-hidden="true">02</div>
           <div className="panes-flow">
             <div className="panes-chapter">
               <div className="section-copy">
@@ -611,7 +631,7 @@ export default function Home() {
         </section>
 
         <section className="menu-section menu-section--panes" id="tostas" aria-label={translate("Tostas y croissants")}>
-          <div className="section-number" aria-hidden="true">02</div>
+          <div className="section-number" aria-hidden="true">03</div>
           <div className="panes-flow">
             <div className="panes-chapter panes-chapter--reverse">
               <ProductPhoto src={assets.eggToast} label="Tosta de Aguacate & Huevo Poché" translate={translate} />
@@ -631,7 +651,7 @@ export default function Home() {
         </section>
 
         <section className="menu-section menu-section--panes" id="brunch" aria-label="Brunch">
-          <div className="section-number" aria-hidden="true">03</div>
+          <div className="section-number" aria-hidden="true">04</div>
           <div className="panes-flow">
             <div className="panes-chapter">
               <div className="section-copy">
@@ -646,7 +666,7 @@ export default function Home() {
         </section>
 
         <section className="menu-section menu-section--salads" id="bowls-frios" aria-label={translate("Bowls fríos")}>
-          <div className="section-number" aria-hidden="true">04</div>
+          <div className="section-number" aria-hidden="true">05</div>
           <ProductPhoto src={assets.coldBowl} label="BOWL AVOCADO" translate={translate} />
           <div className="section-copy">
             <MenuList group={saladBowls} translate={translate} />
@@ -657,7 +677,7 @@ export default function Home() {
         </section>
 
         <section className="menu-section menu-section--bowls" id="bowls-calientes" aria-label={translate("Bowls calientes")}>
-          <div className="section-number" aria-hidden="true">05</div>
+          <div className="section-number" aria-hidden="true">06</div>
           <div className="section-copy">
             <MenuList group={marketBowls} translate={translate} />
           </div>
@@ -665,7 +685,7 @@ export default function Home() {
         </section>
 
         <section className="menu-section menu-section--sweet menu-section--protein" id="acai-protein" aria-label={language === "en" ? "Açaí or Protein Bowl" : "Açaí o protein bowl"}>
-          <div className="section-number" aria-hidden="true">06</div>
+          <div className="section-number" aria-hidden="true">07</div>
           <div className="section-copy section-copy--paired protein-layout">
             <div className="protein-chapter">
               <MenuList group={acai} translate={translate} />
@@ -679,14 +699,14 @@ export default function Home() {
         </section>
 
         <section className="menu-section menu-section--sweet" id="dulces" aria-label={translate("Dulces")}>
-          <div className="section-number" aria-hidden="true">07</div>
+          <div className="section-number" aria-hidden="true">08</div>
           <div className="section-copy">
             <MenuList group={sweet} translate={translate} />
           </div>
         </section>
 
         <section className="menu-section menu-section--drinks" id="bebidas" aria-label={translate("Bebidas")}>
-          <div className="section-number" aria-hidden="true">08</div>
+          <div className="section-number" aria-hidden="true">09</div>
           <div className="section-copy drinks-layout">
             <MenuList group={juices} translate={translate} />
             <div className="drink-photos" aria-label={language === "en" ? "PLENO drinks" : "Bebidas PLENO"}>

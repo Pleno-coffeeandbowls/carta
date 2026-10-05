@@ -132,6 +132,8 @@ h1 em { font-style: italic; }
 .menu-section { display: grid; gap: 22px; padding: 58px 0; position: relative; scroll-margin-top: 137px; }
 .menu-section + .menu-section { border-top: 1px solid var(--line); }
 .menu-section:nth-child(even)::before { background: rgba(255, 253, 248, 0.26); content: ""; inset: 18px -10px; pointer-events: none; position: absolute; }
+.menu-section--daily { display: block; }
+.menu-section--daily .section-copy { max-width: 660px; }
 .section-number { color: rgba(74, 90, 58, 0.31); font-family: "DM Serif Display", Georgia, serif; font-size: 82px; line-height: 0.82; position: absolute; right: 1px; top: 35px; }
 .section-copy { min-width: 0; position: relative; z-index: 1; }
 .section-heading { padding-right: 52px; }
