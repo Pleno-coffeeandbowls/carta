@@ -139,10 +139,7 @@ h1 em { font-style: italic; }
 .section-heading { padding-right: 52px; }
 .section-heading h2 { color: var(--deep-olive); font-size: clamp(2.3rem, 10.2vw, 4rem); letter-spacing: -0.06em; line-height: 0.92; margin: 0; }
 .section-intro { color: var(--ink-soft); font-size: 15px; line-height: 1.52; margin: 11px 0 4px; max-width: 560px; }
-.section-editorial-rule { align-items: center; display: flex; gap: 7px; margin: 19px 0 2px; }
-.section-editorial-rule::before { background: var(--deep-olive); content: ""; height: 1px; width: 36px; }
-.section-editorial-rule span { background: var(--sage); border-radius: 999px; height: 5px; width: 5px; }
-.item-stack { margin-top: 19px; }
+.item-stack { margin-top: 16px; }
 .menu-item { border-top: 1px solid var(--line); padding: 13px 0 14px; }
 .menu-item:last-child { border-bottom: 1px solid var(--line); }
 .item-line { align-items: baseline; display: flex; gap: 13px; justify-content: space-between; }
@@ -156,7 +153,6 @@ h1 em { font-style: italic; }
 .menu-list--compact .item-line h3, .menu-list--compact .item-price { font-size: 15px; }
 .menu-list--subtle .section-heading { padding-right: 0; }
 .menu-list--subtle .section-heading h2 { font-family: "Manrope", Arial, sans-serif; font-size: 15px; font-weight: 800; letter-spacing: 0.04em; line-height: 1.25; text-transform: none; }
-.menu-list--subtle .section-editorial-rule { display: none; }
 .section-heading--chapter { margin-bottom: 26px; }
 .sweet-groups { max-width: 680px; }
 .sweet-groups .subsection-divider { margin: 30px 0; }

@@ -162,11 +162,11 @@ const englishTranslations: Record<string, string> = {
   "Elige 2 bases, 1 proteína y 2 ingredientes.": "Choose 2 bases, 1 protein and 2 ingredients.",
   "Elige 2 bases, 1 proteína y 3 ingredientes.": "Choose 2 bases, 1 protein and 3 ingredients.",
   "SÚPER WRAP: Convierte toda tu ensalada en un Súper Wrap envuelta en una tortilla y con un toque al grill por +1,90 €. Extras Premium: Aguacate (+3,90 €), Extra Proteína (+3,90 €), Extra de ingrediente (+2,00 €).": "SUPER WRAP: Turn your whole salad into a Super Wrap in a tortilla, finished on the grill, for +€1.90. Premium extras: avocado (+€3.90), extra protein (+€3.90), extra ingredient (+€2.00).",
-  "Tofu marinado en soja y miel mostaza, arroz integral con verduritas, boniato al horno, pico de gallo, aguacate y salsa de soja con naranja.": "Tofu marinated in soy and honey mustard, brown rice with vegetables, oven-baked sweet potato, pico de gallo, avocado and orange soy sauce.",
-  "Lomo de salmón al grill, arroz integral con verduritas, boniato al horno, pico de gallo, aguacate y salsa cítrica.": "Grilled salmon fillet, brown rice with vegetables, oven-baked sweet potato, pico de gallo, avocado and citrus sauce.",
-  "Slow cooked pulled pork, arroz integral, frijoles negros, plátano maduro asado, pico de gallo, aguacate, tortilla crujiente y salsa de miel mostaza.": "Slow-cooked pulled pork, brown rice, black beans, roasted ripe plantain, pico de gallo, avocado, crispy tortilla and honey mustard sauce.",
-  "Pechuga de pollo marinada con naranja al grill, quinoa, boniato al horno, pico de gallo, aguacate y salsa pesto de cilantro.": "Orange-marinated grilled chicken breast, quinoa, oven-baked sweet potato, pico de gallo, avocado and coriander pesto sauce.",
-  "Entrecot al grill, arroz, brócoli, boniato o patata, champiñones salteados, aguacate y pico de gallo.": "Grilled entrecôte, rice, broccoli, sweet potato or potato, sautéed mushrooms, avocado and pico de gallo.",
+  "Tofu marinado en soja y miel mostaza, arroz blanco, boniato al horno, pico de gallo, rúcula, aguacate y salsa de soja con naranja.": "Tofu marinated in soy and honey mustard, white rice, oven-baked sweet potato, pico de gallo, rocket, avocado and orange soy sauce.",
+  "Lomo de salmón al grill, arroz blanco, boniato al horno, pico de gallo, aguacate, rúcula y salsa cítrica.": "Grilled salmon fillet, white rice, oven-baked sweet potato, pico de gallo, avocado, rocket and citrus sauce.",
+  "Pulled pork, arroz blanco, frijoles negros, plátano maduro, pico de gallo, aguacate, tortilla crujiente y salsa BBQ.": "Pulled pork, white rice, black beans, ripe plantain, pico de gallo, avocado, crispy tortilla and BBQ sauce.",
+  "Pechuga de pollo marinada con naranja, quinoa, boniato al horno, pico de gallo, aguacate y salsa pesto de cilantro.": "Orange-marinated chicken breast, quinoa, oven-baked sweet potato, pico de gallo, avocado and coriander pesto sauce.",
+  "Entrecot al grill, arroz blanco, brócoli, boniato, champiñones salteados, pico de gallo, aguacate y salsa de paris.": "Grilled entrecôte, white rice, broccoli, sweet potato, sautéed mushrooms, pico de gallo, avocado and Paris sauce.",
   "Añade extra de proteína por +5,50 €.": "Add extra protein for +€5.50.",
   "Base de açaí, chía, granola, arándanos, plátano, fresa y miel.": "Açaí base, chia seeds, granola, blueberries, banana, strawberry and honey.",
   "Base de yogur griego, chía, granola, arándanos, plátano, fresa y miel.": "Greek yogurt base, chia seeds, granola, blueberries, banana, strawberry and honey.",
@@ -192,30 +192,30 @@ const marketBowls: MenuGroup = {
       name: "Vegan Bowl",
       price: "15,90 €",
       description:
-        "Tofu marinado en soja y miel mostaza, arroz integral con verduritas, boniato al horno, pico de gallo, aguacate y salsa de soja con naranja.",
+        "Tofu marinado en soja y miel mostaza, arroz blanco, boniato al horno, pico de gallo, rúcula, aguacate y salsa de soja con naranja.",
     },
     {
       name: "Salmon Bowl",
       price: "17,90 €",
       description:
-        "Lomo de salmón al grill, arroz integral con verduritas, boniato al horno, pico de gallo, aguacate y salsa cítrica.",
+        "Lomo de salmón al grill, arroz blanco, boniato al horno, pico de gallo, aguacate, rúcula y salsa cítrica.",
     },
     {
       name: "Pulled Pork Bowl",
       price: "16,90 €",
       description:
-        "Slow cooked pulled pork, arroz integral, frijoles negros, plátano maduro asado, pico de gallo, aguacate, tortilla crujiente y salsa de miel mostaza.",
+        "Pulled pork, arroz blanco, frijoles negros, plátano maduro, pico de gallo, aguacate, tortilla crujiente y salsa BBQ.",
     },
     {
       name: "Power Bowl",
       price: "16,90 €",
       description:
-        "Pechuga de pollo marinada con naranja al grill, quinoa, boniato al horno, pico de gallo, aguacate y salsa pesto de cilantro.",
+        "Pechuga de pollo marinada con naranja, quinoa, boniato al horno, pico de gallo, aguacate y salsa pesto de cilantro.",
     },
     {
       name: "Steak Bowl",
       price: "17,90 €",
-      description: "Entrecot al grill, arroz, brócoli, boniato o patata, champiñones salteados, aguacate y pico de gallo.",
+      description: "Entrecot al grill, arroz blanco, brócoli, boniato, champiñones salteados, pico de gallo, aguacate y salsa de paris.",
     },
   ],
   note: "Añade extra de proteína por +5,50 €.",
@@ -443,7 +443,6 @@ function MenuList({ group, translate, compact = false, subtleHeading = false }: 
         {group.eyebrow && <p className="eyebrow">{translate(group.eyebrow)}</p>}
         <h2>{translate(group.title)}</h2>
         {group.intro && <p className="section-intro">{translate(group.intro)}</p>}
-        <div className="section-editorial-rule" aria-hidden="true"><span /></div>
       </div>
       <div className="item-stack">
         {group.items.map((item, index) => (
@@ -638,7 +637,6 @@ export default function Home() {
               <div className="section-copy">
                 <div className="section-heading section-heading--chapter">
                   <h2>{translate("Tostas y croissants")}</h2>
-                  <div className="section-editorial-rule" aria-hidden="true"><span /></div>
                 </div>
                 <div className="sweet-groups">
                   <MenuList group={tostas} translate={translate} compact subtleHeading />
