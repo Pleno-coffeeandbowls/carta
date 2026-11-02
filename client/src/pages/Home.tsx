@@ -137,7 +137,7 @@ const englishTranslations: Record<string, string> = {
   "Estrella de Galicia 0,0": "Estrella de Galicia 0.0",
   "Cerveza 1906": "1906 Beer",
   "Elige tu base: Avena · Almendra · Coco · Hi-protein. Extras: Proteína extra (+1,50 €), crema de cacahuete (+1,00 €) o toppings (+1,00 €).": "Choose your base: Oat · Almond · Coconut · Hi-protein. Extras: extra protein (+€1.50), peanut butter (+€1.00) or toppings (+€1.00).",
-  "Plátano, espinaca, proteína de vainilla, mantequilla de almendra, avena, canela y vainilla. 25–30 g de proteína.": "Banana, spinach, vanilla protein, almond butter, oats, cinnamon and vanilla. 25–30 g protein.",
+  "Plátano, espinaca, proteína de vainilla, mantequilla de maní, avena, canela y vainilla. 25–30 g de proteína.": "Banana, spinach, vanilla protein, peanut butter, oats, cinnamon and vanilla. 25–30 g protein.",
   "Cacao, proteína de chocolate, dátil, chía, canela y vainilla. 24–28 g de proteína.": "Cocoa, chocolate protein, date, chia, cinnamon and vanilla. 24–28 g protein.",
   "Frutos rojos, proteína de vainilla, creatina, semillas, canela y vainilla. 23–27 g de proteína.": "Berries, vanilla protein, creatine, seeds, cinnamon and vanilla. 23–27 g protein.",
   "Espresso, proteína de chocolate, yogur griego, plátano, chía, canela y vainilla. 30–35 g de proteína.": "Espresso, chocolate protein, Greek yogurt, banana, chia, cinnamon and vanilla. 30–35 g protein.",
@@ -153,12 +153,12 @@ const englishTranslations: Record<string, string> = {
   "Tosta de aguacate con dos huevos poché o tosta de ibérico, tomate y queso semicurado. Incluye: Café o infusión; zumo de naranja o zumo mix del día; bizcocho casero o napolitana de chocolate; yogur natural con granola y miel.": "Avocado toast with two poached eggs or Iberian ham, tomato & semi-cured cheese toast. Includes: coffee or infusion; orange juice or seasonal mixed juice; homemade cake or chocolate pain au chocolat; natural yogurt with granola and honey.",
   "Tortitas healthy o Fitbowl. Incluye: Zumo de naranja o zumo del día; tosta con tomate y aceite de oliva virgen; café o infusión.": "Healthy pancakes or Fitbowl. Includes: orange juice or juice of the day; tomato & extra virgin olive oil toast; coffee or infusion.",
   "¿Prefieres nuestro bagel de salmón o nuestra tosta de salmón y queso crema? Por +3,50 € más puedes elegir este principal en Bagel Brunch y Tosta Brunch.": "Prefer our salmon bagel or salmon & cream cheese toast? For an additional €3.50, choose it as the main dish in Bagel Brunch and Toast Brunch.",
-  "Pollo cúrcuma, aguacate, tomatitos cherry, col lombarda, cebolla morada, nachos, espinaca baby, mézclum y pesto de cilantro con lima.": "Turmeric chicken, avocado, cherry tomatoes, red cabbage, red onion, nachos, baby spinach, mixed leaves and coriander-lime pesto.",
-  "Lentejas, garbanzos, boniato y brócoli al horno, col lombarda, almendras tostadas, remolacha, espinacas baby, kale y vinagreta cítrica de frutos rojos.": "Lentils, chickpeas, oven-baked sweet potato and broccoli, red cabbage, toasted almonds, beetroot, baby spinach, kale and red berry citrus vinaigrette.",
-  "Pollo a la naranja, noodles de calabacín, pipas de calabaza tostadas, tomatitos cherry, cilantro, queso feta, crotones, rúcula, mézclum, aceite de albahaca y salsa de yogurt.": "Orange chicken, courgette noodles, toasted pumpkin seeds, cherry tomatoes, coriander, feta cheese, croutons, rocket, mixed leaves, basil oil and yogurt sauce.",
-  "Pollo cúrcuma, calabaza al horno, quinoa, espinacas baby, kale rostizado, zanahoria, col lombarda, almendras tostadas y salsa de miel mostaza.": "Turmeric chicken, oven-baked squash, quinoa, baby spinach, roasted kale, carrot, red cabbage, toasted almonds and honey mustard sauce.",
-  "Tofu asado, mix de portobellos, remolacha, pepino, pipas de calabaza, cebolla encurtida, arroz blanco, kale, sésamo y vinagreta de soja jengibre.": "Roasted tofu, mixed portobello mushrooms, beetroot, cucumber, pumpkin seeds, pickled onion, white rice, kale, sesame and soy-ginger vinaigrette.",
-  "Pollo a la naranja, noodles de calabacín, zanahoria, col lombarda, pepino, arroz blanco, cebolla crusty, cilantro, almendras y vinagreta de anacardos.": "Orange chicken, courgette noodles, carrot, red cabbage, cucumber, white rice, crispy onion, coriander, almonds and cashew vinaigrette.",
+  "Pollo cúrcuma, aguacate, tomates cherry, col lombarda, cebolla morada, nachos, espinaca y pesto de cilantro.": "Turmeric chicken, avocado, cherry tomatoes, red cabbage, red onion, nachos, spinach and coriander pesto.",
+  "Lentejas, garbanzos, boniato y brócoli al horno, aguacate, col lombarda, almendras tostadas, remolacha, espinacas, kale y salsa cítrica.": "Lentils, chickpeas, oven-baked sweet potato and broccoli, avocado, red cabbage, toasted almonds, beetroot, spinach, kale and citrus sauce.",
+  "Pollo a la naranja, noodles de calabacín, semillas de calabaza, tomates cherry, cilantro, queso feta, crotones, rúcula, mix de lechuga, aceite de albahaca y salsa de yogurt.": "Orange chicken, courgette noodles, pumpkin seeds, cherry tomatoes, coriander, feta cheese, croutons, rocket, mixed leaves, basil oil and yogurt sauce.",
+  "Pollo cúrcuma, calabaza al horno, quinoa, espinaca, kale rostizado, zanahoria, col lombarda, almendras y salsa de miel mostaza.": "Turmeric chicken, oven-baked squash, quinoa, spinach, roasted kale, carrot, red cabbage, almonds and honey mustard sauce.",
+  "Tofu asado, mix de portobello, remolacha, pepino, pipas de calabaza, arroz blanco, kale y vinagreta de soja con jengibre.": "Roasted tofu, mixed portobello mushrooms, beetroot, cucumber, pumpkin seeds, white rice, kale and soy-ginger vinaigrette.",
+  "Pollo a la naranja, noodles de calabacín, zanahoria, col lombarda, pepino, arroz blanco, cebolla frita, cilantro, almendras y salsa de soja con naranja.": "Orange chicken, courgette noodles, carrot, red cabbage, cucumber, white rice, fried onion, coriander, almonds and orange soy sauce.",
   "Elige 2 bases, 1 proteína y 2 ingredientes.": "Choose 2 bases, 1 protein and 2 ingredients.",
   "Elige 2 bases, 1 proteína y 3 ingredientes.": "Choose 2 bases, 1 protein and 3 ingredients.",
   "SÚPER WRAP: Convierte toda tu ensalada en un Súper Wrap envuelta en una tortilla y con un toque al grill por +1,90 €. Extras Premium: Aguacate (+3,90 €), Extra Proteína (+3,90 €), Extra de ingrediente (+2,00 €).": "SUPER WRAP: Turn your whole salad into a Super Wrap in a tortilla, finished on the grill, for +€1.90. Premium extras: avocado (+€3.90), extra protein (+€3.90), extra ingredient (+€2.00).",
@@ -229,37 +229,37 @@ const saladBowls: MenuGroup = {
       name: "Avocado",
       price: "15,90 €",
       description:
-        "Pollo cúrcuma, aguacate, tomatitos cherry, col lombarda, cebolla morada, nachos, espinaca baby, mézclum y pesto de cilantro con lima.",
+        "Pollo cúrcuma, aguacate, tomates cherry, col lombarda, cebolla morada, nachos, espinaca y pesto de cilantro.",
     },
     {
       name: "Veggie",
       price: "13,90 €",
       description:
-        "Lentejas, garbanzos, boniato y brócoli al horno, col lombarda, almendras tostadas, remolacha, espinacas baby, kale y vinagreta cítrica de frutos rojos.",
+        "Lentejas, garbanzos, boniato y brócoli al horno, aguacate, col lombarda, almendras tostadas, remolacha, espinacas, kale y salsa cítrica.",
     },
     {
       name: "Señor Zucchini",
       price: "14,90 €",
       description:
-        "Pollo a la naranja, noodles de calabacín, pipas de calabaza tostadas, tomatitos cherry, cilantro, queso feta, crotones, rúcula, mézclum, aceite de albahaca y salsa de yogurt.",
+        "Pollo a la naranja, noodles de calabacín, semillas de calabaza, tomates cherry, cilantro, queso feta, crotones, rúcula, mix de lechuga, aceite de albahaca y salsa de yogurt.",
     },
     {
       name: "Señorita Pumpkin",
       price: "14,90 €",
       description:
-        "Pollo cúrcuma, calabaza al horno, quinoa, espinacas baby, kale rostizado, zanahoria, col lombarda, almendras tostadas y salsa de miel mostaza.",
+        "Pollo cúrcuma, calabaza al horno, quinoa, espinaca, kale rostizado, zanahoria, col lombarda, almendras y salsa de miel mostaza.",
     },
     {
       name: "Tofunghi",
       price: "14,90 €",
       description:
-        "Tofu asado, mix de portobellos, remolacha, pepino, pipas de calabaza, cebolla encurtida, arroz blanco, kale, sésamo y vinagreta de soja jengibre.",
+        "Tofu asado, mix de portobello, remolacha, pepino, pipas de calabaza, arroz blanco, kale y vinagreta de soja con jengibre.",
     },
     {
       name: "Crusty",
       price: "13,90 €",
       description:
-        "Pollo a la naranja, noodles de calabacín, zanahoria, col lombarda, pepino, arroz blanco, cebolla crusty, cilantro, almendras y vinagreta de anacardos.",
+        "Pollo a la naranja, noodles de calabacín, zanahoria, col lombarda, pepino, arroz blanco, cebolla frita, cilantro, almendras y salsa de soja con naranja.",
     },
   ],
 };
@@ -376,7 +376,7 @@ const juices: MenuGroup = {
 const smoothies: MenuGroup = {
   title: "Shakes de proteína",
   items: [
-    { name: "Glow Bomb", price: "9,50 €", description: "Plátano, espinaca, proteína de vainilla, mantequilla de almendra, avena, canela y vainilla. 25–30 g de proteína." },
+    { name: "Glow Bomb", price: "9,50 €", description: "Plátano, espinaca, proteína de vainilla, mantequilla de maní, avena, canela y vainilla. 25–30 g de proteína." },
     { name: "Crack Shake", price: "9,50 €", description: "Cacao, proteína de chocolate, dátil, chía, canela y vainilla. 24–28 g de proteína." },
     { name: "Pink Velvet", price: "9,50 €", description: "Frutos rojos, proteína de vainilla, creatina, semillas, canela y vainilla. 23–27 g de proteína." },
     { name: "Brain Fuel", price: "9,50 €", description: "Espresso, proteína de chocolate, yogur griego, plátano, chía, canela y vainilla. 30–35 g de proteína." },
