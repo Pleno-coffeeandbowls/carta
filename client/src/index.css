@@ -125,15 +125,20 @@ h1 em { font-style: italic; }
 .category-pill { align-items: center; background: transparent; border: 0; border-radius: 2px; color: var(--deep-olive); cursor: pointer; display: inline-flex; flex: 0 0 auto; font-size: 11px; font-weight: 800; gap: 6px; letter-spacing: 0.08em; min-height: 44px; padding: 0 13px; text-transform: uppercase; transition: background 160ms ease-out, color 160ms ease-out, transform 160ms ease-out; }
 .category-pill::before { color: var(--sage); content: attr(data-index); font-family: "DM Serif Display", Georgia, serif; font-size: 16px; letter-spacing: 0; }
 .category-pill:active { transform: scale(0.97); }
-.category-pill.is-active, .category-pill:hover { background: var(--deep-olive); color: var(--travertine); }
-.category-pill.is-active::before, .category-pill:hover::before { color: var(--travertine); }
+.category-pill.is-active { background: var(--deep-olive); color: var(--travertine); }
+.category-pill.is-active::before { color: var(--travertine); }
+@media (hover: hover) and (pointer: fine) {
+  .category-pill:not(.is-active):hover { background: rgba(74, 90, 58, 0.1); }
+}
 
 .menu-shell { margin: 0 auto; max-width: 1260px; padding: 24px 20px 0; }
 .menu-section { display: grid; gap: 22px; padding: 58px 0; position: relative; scroll-margin-top: 137px; }
 .menu-section + .menu-section { border-top: 1px solid var(--line); }
 .menu-section:nth-child(even)::before { background: rgba(255, 253, 248, 0.26); content: ""; inset: 18px -10px; pointer-events: none; position: absolute; }
-.menu-section--daily { display: block; }
+.menu-section--daily { display: block; padding-bottom: 20px; }
 .menu-section--daily .section-copy { max-width: 660px; }
+.menu-section--daily + #bagels-paninos { border-top: 0; padding-top: 28px; }
+.menu-section--daily + #bagels-paninos .section-number { top: 5px; }
 .section-number { color: rgba(74, 90, 58, 0.31); font-family: "DM Serif Display", Georgia, serif; font-size: 82px; line-height: 0.82; position: absolute; right: 1px; top: 35px; }
 .section-copy { min-width: 0; position: relative; z-index: 1; }
 .section-heading { padding-right: 52px; }
@@ -230,6 +235,9 @@ h1 em { font-style: italic; }
   .category-rail { padding-left: 32px; padding-right: 32px; }
   .menu-shell { padding-left: 32px; padding-right: 32px; }
   .menu-section { grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr); padding: 92px 0; }
+  .menu-section--daily { padding-bottom: 24px; }
+  .menu-section--daily + #bagels-paninos { padding-top: 40px; }
+  .menu-section--daily + #bagels-paninos .section-number { top: 17px; }
   .menu-section--salads, .menu-section--brunch { grid-template-columns: minmax(280px, 0.75fr) minmax(0, 1.25fr); }
   .product-photo, .product-carousel { align-self: start; position: sticky; top: 143px; }
   .photo-frame, .carousel-frame { aspect-ratio: 2 / 3; height: auto; }

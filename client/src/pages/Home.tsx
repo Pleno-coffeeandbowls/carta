@@ -150,7 +150,7 @@ const englishTranslations: Record<string, string> = {
   "Atún spicy, aderezo de chipotle, tomate y mix de lechugas y aguacate.": "Spicy tuna, chipotle dressing, tomato, mixed leaves and avocado.",
   "Paso 3: Añade extras: Huevo poché (+3,90 €), aguacate (+3,90 €), jamón de pavo (+3,50 €), salmón (+4,50 €) y queso (+3,50 €).": "Step 3: Add extras: poached egg (+€3.90), avocado (+€3.90), turkey ham (+€3.50), salmon (+€4.50) and cheese (+€3.50).",
   "Bagel de pavo y aguacate o panino de pollo. Incluye: Zumo de naranja o zumo mix del día; café o infusión; bizcocho casero o napolitana de chocolate; yogur natural con granola y miel.": "Turkey & avocado bagel or chicken panini. Includes: orange juice or seasonal mixed juice; coffee or infusion; homemade cake or chocolate pain au chocolat; natural yogurt with granola and honey.",
-  "Tosta de aguacate con dos huevos poché o tosta de ibérico, tomate y queso semicurado. Incluye: Café o infusión; zumo de naranja o zumo mix del día; bizcocho casero o napolitana de chocolate; yogur natural con granola y miel.": "Avocado toast with two poached eggs or Iberian ham, tomato & semi-cured cheese toast. Includes: coffee or infusion; orange juice or seasonal mixed juice; homemade cake or chocolate pain au chocolat; natural yogurt with granola and honey.",
+  "Tosta de aguacate con dos huevos poché o tosta de tomate y jamón ibérico. Incluye: Café o infusión; zumo de naranja o zumo mix del día; bizcocho casero o napolitana de chocolate; yogur natural con granola y miel.": "Avocado toast with two poached eggs or tomato & Iberian ham toast. Includes: coffee or infusion; orange juice or seasonal mixed juice; homemade cake or chocolate pain au chocolat; natural yogurt with granola and honey.",
   "Tortitas healthy o Fitbowl. Incluye: Zumo de naranja o zumo del día; tosta con tomate y aceite de oliva virgen; café o infusión.": "Healthy pancakes or Fitbowl. Includes: orange juice or juice of the day; tomato & extra virgin olive oil toast; coffee or infusion.",
   "¿Prefieres nuestro bagel de salmón o nuestra tosta de salmón y queso crema? Por +3,50 € más puedes elegir este principal en Bagel Brunch y Tosta Brunch.": "Prefer our salmon bagel or salmon & cream cheese toast? For an additional €3.50, choose it as the main dish in Bagel Brunch and Toast Brunch.",
   "Pollo cúrcuma, aguacate, tomates cherry, col lombarda, cebolla morada, nachos, espinaca y pesto de cilantro.": "Turmeric chicken, avocado, cherry tomatoes, red cabbage, red onion, nachos, spinach and coriander pesto.",
@@ -313,7 +313,7 @@ const brunch: MenuGroup = {
       name: "Tosta Brunch",
       price: "21,00 €",
       description:
-        "Tosta de aguacate con dos huevos poché o tosta de ibérico, tomate y queso semicurado. Incluye: Café o infusión; zumo de naranja o zumo mix del día; bizcocho casero o napolitana de chocolate; yogur natural con granola y miel.",
+        "Tosta de aguacate con dos huevos poché o tosta de tomate y jamón ibérico. Incluye: Café o infusión; zumo de naranja o zumo mix del día; bizcocho casero o napolitana de chocolate; yogur natural con granola y miel.",
     },
     {
       name: "Sweet & Healthy Brunch",
@@ -516,24 +516,61 @@ export default function Home() {
       .map(({ id }) => document.getElementById(id))
       .filter((section): section is HTMLElement => Boolean(section));
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-        if (visible[0]) setActive(visible[0].target.id);
-      },
-      { rootMargin: "-22% 0px -64% 0px", threshold: [0.1, 0.35, 0.65] },
-    );
+    const header = document.querySelector<HTMLElement>(".site-header");
+    const navigation = document.querySelector<HTMLElement>(".category-nav");
+    let frame: number | null = null;
 
-    sections.forEach((section) => observer.observe(section));
-    const onScroll = () => setShowTop(window.scrollY > 680);
+    const updateActiveSection = () => {
+      frame = null;
+      const readingLine = (header?.offsetHeight ?? 72) + (navigation?.offsetHeight ?? 66) + 8;
+      let current = sections[0]?.id ?? "menu-del-dia";
+
+      // A heading crossing the fixed navigation defines the active chapter.
+      // Unlike intersection ratios, this also works for very long mobile sections.
+      for (const section of sections) {
+        if (section.getBoundingClientRect().top > readingLine) break;
+        current = section.id;
+      }
+      setActive(current);
+      setShowTop(window.scrollY > 680);
+    };
+
+    const onScroll = () => {
+      if (frame === null) frame = window.requestAnimationFrame(updateActiveSection);
+    };
+    const resizeObserver = new ResizeObserver(onScroll);
+    sections.forEach((section) => resizeObserver.observe(section));
+    if (header) resizeObserver.observe(header);
+    if (navigation) resizeObserver.observe(navigation);
+
     window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    updateActiveSection();
     return () => {
-      observer.disconnect();
+      resizeObserver.disconnect();
       window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (frame !== null) window.cancelAnimationFrame(frame);
     };
   }, []);
+
+  useEffect(() => {
+    const rail = document.querySelector<HTMLElement>(".category-rail");
+    const selected = rail?.querySelector<HTMLElement>(".category-pill[aria-current='true']");
+    if (!rail || !selected) return;
+    if (active === navItems[0].id) {
+      rail.scrollTo({ left: 0, behavior: "instant" });
+      return;
+    }
+    const railBounds = rail.getBoundingClientRect();
+    const selectedBounds = selected.getBoundingClientRect();
+    const overflow = selectedBounds.left < railBounds.left
+      ? selectedBounds.left - railBounds.left - 12
+      : selectedBounds.right > railBounds.right
+        ? selectedBounds.right - railBounds.right + 12
+        : 0;
+    if (overflow) rail.scrollBy({ left: overflow, behavior: "instant" });
+  }, [active]);
 
   useEffect(() => {
     if (window.localStorage.getItem(WELCOME_STORAGE_KEY)) return;
@@ -554,7 +591,11 @@ export default function Home() {
   }, [showWelcome]);
 
   const goTo = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    const section = document.getElementById(id);
+    if (!section) return;
+    if (navItems.some((item) => item.id === id)) setActive(id);
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    section.scrollIntoView({ behavior: reduceMotion ? "instant" : "smooth", block: "start" });
   };
 
   const dismissWelcome = () => {
